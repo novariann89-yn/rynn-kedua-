@@ -1,38 +1,27 @@
 #include <stdio.h>
 #include <stdbool.h>
 
-int main(){
+int main (){
 
-	bool isOpen = false;
+	bool isOnline = 0;
 
-	if (isOpen){
-	printf("ya bang pintunya kebuka\n");
-	printf("\n");
+	if (isOnline){
+	printf("ya bro dia lagi online tuh!\n");
 	} else {
-	printf("nggk bang, ketutup pintunya\n");
-	printf("\n");
+	printf("kagak men, dia lagi offline\n");
 	}
 
 
-	bool isBig = true;
+// saya mencoba membuat pengecek umur
+	bool umur = 1;
 
-	if (isBig){
-	printf("YEA BRO HE'S SO BIGFFFGF\n");
-	printf("\n");
-	} else {
-	printf("nah man he's so small hahah\n");
-	printf("\n");
-	}
+	printf("\n")
+	print("masukin umur lu brooo\n");
+	scanf("%d\n");
 
-
-	int umur = 11;
-	printf("umur ku %d\n", umur);
-
-	if (umur > 10){
-	printf("ya bg, umur dia lebih dari sepulu\n");
-	} else {
-	printf("nggk bg,umur dia masi dibawah sepulu\n");
-	}
+	if (umur > 17){
+		printf("ok bg umur lu %d\n", umur);
+		
 
 	return 0;
 }
