@@ -1,122 +1,3 @@
-pkg install
-pkg upgrade
-pkg install clang
-ls
-a
-la
-l
-ls
-nano ryn1.c
-./ryn1.c
-clang ryn1.c
-nano ryn1.c
-clang ryn1.c 
-nano ryn1.c
-clang ryn1.c -o ryn1.c
-pkg info
-pkg install clang
-clanf
-clang
-clang ryn1.c -o ryn1
-nano ryn1.
-./ryn1.c
-clang ryn1.c -o ryn1.c
-nano ryn1.c
-./ryn.x
-./ryn.c
-nano ryn.c
-ls
-sl
-il
-ls
-infl
-info
-pkg install text info
-textinfo
-nano ryn.c
-ls
-nano rynn.c
-./rynn.c
-nano rynn.c
-clang rynn.c -o rynn
-./rynn
-~\.bashrc
-~/.bashrc
-pkg install bash
-.bash --info
-bash --info
-rcfile
-~bashrc
-~/.bashrc
-ls
-~/.bashrc
-~/.bashrc rynn
-nano ~/.bashrc
-r1
-source ~/.bashrc
-e
-r1
-source ~/.bashrc
-/.rynn
-./rynn
-nano ~/.bashrc
-source ~/
-source ~/.bashrc
-clear
-source ~/.bashrc
-./rynn
-nano rynn.c
-nano ~/.bashrc
-source ~/.bashrc
-r1
-e1
-r1
-e1
-r1
-e1
-r1
-e1
-r1
-e1
-r1
-./rynn
-e1
-clear
-main
-exut
-exit
-r1
-la
-ls
-a.out
-e1
-r1
-nano ~/.bashrc
-e1
-> rynn.c
-e1
-r1
-e1
-r1
-e1
-r1
-e1
-e
-e1
-cleat
-clear
-r1
-eq
-clear
-r1
-e1
-r1
-e1
-r1
-e1
-r1
-e1
-r1
 e1
 r1
 e1
@@ -432,3 +313,188 @@ clear
 e1
 r2
 e2
+clear
+ls
+git status
+r1
+clear
+r1
+clear
+r1
+e1
+r1
+clear
+r2
+r1
+e1
+r1
+clear
+r1
+e1
+r1
+e1
+r1
+clear
+r1
+e1
+r1
+clear
+r1
+clear
+e1
+r1
+e1
+r1
+clear
+r1
+clear
+r1
+clear
+e1
+r1
+clear
+e1
+r1
+e1
+r1
+cleat
+clear
+e1
+r1
+clear
+r1
+r
+clear
+e1
+r1
+e1
+r1
+clear
+r2
+e2
+> rynnn.c
+e2
+r2
+e2
+r2
+e2
+r2
+clear
+e2
+r2
+clear
+r2
+clear
+r2
+r1
+clear
+r2
+clear
+e2
+git commit -m rynnn.c
+git add rynnn.x
+git add rynnn.c
+git inif 
+git init
+git init rynnn.c
+git status
+git push
+ls
+git add .
+clear
+git add 
+git add .
+git commit -m rynnn.c
+git status
+git push
+git status
+git commit -m "niat coba bikin if else yg lebih dalem tpi blum kelar"
+git commit -m rynnn.c "niat bikin if else yg lebi dalem, tpi belum kelar"
+git commit -m "rynnn.c"
+git add .
+git commit -m "niat coba if else yg lebi dalem di rynnn"
+git origin main
+git push
+git log --oneline
+git add rynnn.c
+git commit -m "gini kah? (lupa lupa mulu woi flow buat ngesave perubahan"
+git push
+git info
+git mailinfo
+git status
+clear
+r1
+e1
+r2
+e2
+r2
+clear
+r2
+clear
+e2
+r2
+clear
+r2
+e2
+y
+clear
+r2
+ls
+e2
+clear
+r2
+e2
+clear
+r2
+e2
+r2
+e2
+r2
+e2
+ls
+e2
+r2
+clear
+r2
+e2
+clear
+r2
+>rynnn.c
+e2
+r2
+clear
+r2
+clear
+e2
+r2
+e2
+clear
+r2
+e2
+r2
+e2
+clear
+r2
+cleat
+clear.r2
+clear
+r2
+clear
+r2
+clear
+e2
+r2
+clear
+r2
+clear
+r
+clear
+r2
+r1
+e2
+clear
+cleat
+clear
+rq
+clear
+r1
