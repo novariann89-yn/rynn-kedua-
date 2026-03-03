@@ -1,92 +1,3 @@
-e1
-r1
-e1
-r1
-e1
-r1
-e1
-r1
-e1
-r1
-e1
-r1
-e1
-rq
-r1
-clear
-rq
-clear
-r1
-e1
-r1
-e1
-r1
-e1
-r1
-clear
-r1
-e1
-r1
-e1
-r1
-e1
-r1
-e1
-r1
-e1
-r1
-e1
-r1
-e1
-r1
-e1
-r1
-e1
-r1
-e1
-r1
-clear
-r1
-clear
-pkg install cmatrix
-clear
-cmatrux
-clear
-cmatrix
-clear
-r1
-e1
-r1
-clear
-r1
-git status
-clear
-nano ~/.nanorc
-source ~/.nanorc
-e1
-nano ~/.nanorc 
-nano ~/.nanorc
-e1
-nano ~\.nanorc 
-nano ~/.nanorc
-e1
-ls
-> rynn.c
-e1
-r1
-e1
-r1
-e1
-r1
-e1
-r1
-e1
-r1
-e1
-r1
-clear
-r1
-e1
 r1
 clear
 rq
@@ -498,3 +409,92 @@ clear
 rq
 clear
 r1
+clear
+matric
+cmatric
+e1
+clear
+e2
+r1
+r2
+clear
+e
+clear
+e2
+> rynnn.c
+e2
+r2
+e2
+r2
+e2
+r2
+90
+cleqr
+clear
+r2
+cleat
+clear
+r2
+clear
+e2
+fflush
+r2
+e
+e2
+clear
+r1
+clear
+r2
+cleat
+clear
+e2
+r2
+e2
+r2
+e
+e2
+clear
+r2
+e2
+r2
+clear
+r2
+clear
+ear
+clearcleqr
+clear
+cleqr
+e2
+> rynnn.c
+e
+e2
+r2
+e2
+> rynnn.c
+e2
+r2
+clear
+r2
+e2
+r2
+e2
+r2
+e2
+git status
+git add .
+git commit -m rynnn.c
+git push
+git status
+clear
+r2
+clear
+r2
+r1
+e2
+r1
+e1
+clear
+r2
+e2
+> rynnn.c
+e2

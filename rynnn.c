@@ -1,30 +1,18 @@
 #include <stdio.h>
-#include <stdbool.h>
 
 int main(){
 
-	int umur;
+	int nilaii = 95;
 
-	printf("masukin umur lu!\n");
-	scanf("%d", &umur);
-
-	if (umur >=17){
-	printf("remaja lu\n");
-	printf("karna lu %d thun\n", umur);
-	  if (umur >= 21){
-	  printf("dewasa lu\n");
-	  printf("karna lu %d\n", umur);
-	  }
-	  else if (umur >=18){
-	  printf("remaja juga si tpi lebi berumur\n");
-	  }
-	  else {
-	  printf("bocah\n");
-	  }
+	if (nilaii >= 70){
+	printf("lulus, cuma lulus ya..\n");
+		if (nilaii >= 90){
+		printf("lulus dan dapat bonus!!\n");
+		}
 	} else {
-	    printf("bocahh\n");
+	printf("lulus aja kagak bro\n");
 	}
 
-
 	return 0;
+
 }
