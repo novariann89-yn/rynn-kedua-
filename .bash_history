@@ -1,275 +1,3 @@
-r1
-clear
-rq
-clear
-r
-clear
-r1
-e1
-r1
-e1
-r1
-e1
-r1
-e1
-clear
-r
-1
-clear
-r1
-clear
-r1
-e1
-r1
-e1
-r1
-e1
-r1
-e1
-r1
-cleat
-clear
-r1
-e1
-r1
-e1
-r1
-clear
-r1
-e1
-r1
-clear
-r1
-e1
-r1
-e1
-r1
-e1
-r1
-e1
-r1
-e1
-r1
-clear
-r1
-r2
-clear
-r1
-e1
-clear
-r1
-e1
-r1
-clear
-r1
-e1
-clear
-r1
-e1
-r1
-clear
-r1
-e1
-r1
-clear
-r1
-e1
-clear
-r1
-e1
-r1
-w1
-e1
-clear
-r1
-e1
-clear
-1
-r1
-clear
-r1
-clear
-r1
-e1
-pkg install git
-hi
-git status
-git
-clear
-ls
-git add rynn.c
-git add .
-git init
-git status
-ls
-git remote add origin https://github.com/novariann89-yn/rynn-kedua-.git
-git remote -v
-git add 
-git add .
-git commit -m "file kedua bg, yg peetama ku apus dri termux"
-git config --global user.name novariann89-yn
-git config --global user.email novariann89@gmail.com
-git add .
-git commit -m "file kedua bg, yg pertama ku apua, btw ini lagi nambah latian boolean."
-git branch -M main
-git push -u origin main
-git clone https://github.com/cozis/ToastyFS.git
-nano ToastyFS.git
-cd ToastyFS.git
-ls
-cd ToastyFS
-S
-ls *.c
-main
-cd ToastyFS
-main
-cd $
-cd main
-cd exut
-cd exit
-ls
-cd rynn
-ls
-main
-clear
-exit
-ls
-pkg uninstall ToastyFS
-e1
-nano rynn1.c
-clear
-e1
-ls
-r1
-~/.bashrc
-nano ~/.bashr
-nano ~/.bashrc
-nano rynnn.c
-clang rynnn.c -o rynnn
-./rynnn
-nano ~/.bashrc
-r2
-source ~/.bashrc
-r2
-e2
-r2
-e2
-r2
-r1
-clear
-r1
-r2
-r1
-r2
-r1
-clear
-e2
-r2
-e2
-r2
-e2
-r2
-clear
-r1
-clear
-r2
-e2
-r2
-e2
-r2
-clear
-r2
-e2
-r2
-clear
-r2
-e2
-r2
-e2
-r2
-e2
-r2
-clear
-r2
-e2
-r2
-e2
-r2
-e2
-r2
-e2
-r2
-clear
-r2
-e2
-git push
-clear
-git init
-git status
-git commit -a rynnn.c
-git commit rynnn.c
-git add rynnn.c
-git status
-pwd
-git status
-git add rynnn
-git add rynnn.c
-git .
-git commit -m "add rynnn.c"
-git push
-git status
-git config user.email
-git log --oneline
-clear
-e1
-r2
-e2
-clear
-ls
-git status
-r1
-clear
-r1
-clear
-r1
-e1
-r1
-clear
-r2
-r1
-e1
-r1
-clear
-r1
-e1
-r1
-e1
-r1
-clear
-r1
-e1
-r1
-clear
-r1
-clear
-e1
-r1
-e1
-r1
-clear
-r1
-clear
-r1
-clear
-e1
-r1
-clear
-e1
-r1
-e1
-r1
-cleat
-clear
 e1
 r1
 clear
@@ -498,3 +226,275 @@ r2
 e2
 > rynnn.c
 e2
+git status
+git add .
+git init
+git commit -m rynnn.c "melajarin else if sama nested if ae lama bner broo, but at least i keep going"
+git push
+git status
+git init
+git branch -m main
+git push -u origin main
+git add .
+git commit -m "alamak bner bro melajarin else if sama nested if aja sampe sekitar 3 harian, tapi okela. at least i dont stop"
+git push
+e2
+rynnnn.c
+nano rynnnn.c
+clang rynnnn.c -o clang rynnnn
+r2
+rynnn.c
+./rynnn.c
+.\rynnn.c
+r2
+e2
+> rynnn.c
+e2
+r1
+r2
+clear
+e2
+r2
+e2
+clear
+r2
+clear
+r2
+clear
+e2
+r2
+clear
+e2
+r2
+e2
+r2
+70
+clear
+r2
+e2
+clear
+r2
+clear
+r
+clewt
+clear
+r2
+e2
+r2
+e2
+clear
+r2
+e2
+r2
+e2
+clear
+r2
+e2
+r2
+e2
+r2
+e2
+r2
+clear
+r2
+clear
+r2
+e2
+r2
+clear
+e2
+r2
+clear
+r2
+clear
+r2
+clear
+e2
+r2
+clear
+r2
+e2
+30
+clear
+r2
+e2
+r2
+e2
+clear
+r2
+clear
+40
+clear
+r2
+e2
+r2
+clear
+r2
+e2
+r2
+e2
+clear
+pkg install micro
+micro clang
+micro bro.c
+./bro.c
+micro clang bro.c -o bro
+bro.c
+micro bro.c
+acodeX-server
+acodeX
+curl -sL https://raw.githubusercontent.com/bajrangCoder/acode-plugin-acodex/main/installServer.sh | bash
+curl -sL https://raw.githubusercontent.com/bajrangCoder/acode-plugin-acodex/main/installServer.sh | bash -s -- --gui
+yyyyyyyyyy
+y
+axs
+ls
+~\.bashrc
+~.\ bashr
+~\.bashrc
+session
+linux
+clear
+e2
+micro bro.c
+acodeX-server
+clear
+ls
+micro bashrc
+micro ~/.bashrc
+source ~/.bashrc
+e3
+e2
+e1
+e3
+clear
+ls
+ew
+e2
+clear
+e2
+~/.bashrc
+micro ~/.bashrc
+source ~/.bashrc
+e1
+e3
+> bro.c
+e3
+r3
+e3
+r3
+clear
+e3
+e2
+e3
+r3
+e3
+micro ~/.bashrc
+/.bro.c
+clang bro.c -o bro
+./bro.c
+./bro
+r3
+./brl
+./bro
+clear
+./bro
+r3
+micro ~/.bashrc
+source ~/.bashrc
+r3
+clear
+e3
+r3
+e3
+r3
+clea
+clear
+r3
+clear
+e3
+> bro.c
+e3
+r3
+clear
+r3
+e3
+r3
+e3
+e2
+e3
+clear
+r
+r1
+r3
+clear
+r3
+e3
+r3
+e3
+r3
+ekje
+kw
+e3
+r3
+e3
+clear
+r3
+clear
+r3
+e3
+r3
+e3
+re
+r3
+e3
+r3
+e3
+micro ~/.bashrc
+source ~/.bashrc
+e4
+r4
+e4
+r4
+clear
+r4
+r3
+clear
+r4
+clear
+r4
+e4
+git status
+cmatric
+ls
+clear
+donut.c
+micro donut.c
+./donut.c
+clang donut.c -o donut
+ls
+./donut
+./donut.c
+/.donut.c
+./donut.c
+clang donut.c -o donut
+clang donut.c -o donut -m
+clang donut.c -o donut -lm
+./donut
+clear
+./donut
+clear
+./donut
+clear
+ls
+file
+ls
+l
+sl
+s
+ls
+file
+file -help
+help
+file -info
+la 
