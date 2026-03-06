@@ -6,6 +6,7 @@ int main(){
 	int umur;
 
 	printf("masukin umur lu bang\n");
+  printf("BANG BQNG MASUKIN BURUANN!!\n");
 	printf("\n");
 	scanf("%d", &umur);
 
@@ -30,7 +31,7 @@ int suhu;
   }
 
  char text[100];
-  printf("tulis apapun\n");
+  printf("tulis password nya\n");
   scanf("%s", text);
 
   if (strcmp(text, "NEOVIM") == 0){

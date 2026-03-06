@@ -370,3 +370,39 @@
 }
 [ERROR Fri Mar  6 23:42:03 2026] ...zy/mason.nvim/lua/mason-core/installer/InstallRunner.lua:93: Installation failed for Package(name=stylua) error="The current platform is unsupported."
 [ERROR Fri Mar  6 23:42:03 2026] ...zy/mason.nvim/lua/mason-core/installer/InstallRunner.lua:93: Installation failed for Package(name=lua-language-server) error="The current platform is unsupported."
+[INFO  Sat Mar  7 00:37:02 2026] ...zy/mason.nvim/lua/mason-core/installer/InstallRunner.lua:40: Executing installer for Package(name=stylua) {
+  debug = false,
+  force = false,
+  strict = false
+}
+[INFO  Sat Mar  7 00:37:03 2026] ...zy/mason.nvim/lua/mason-core/installer/InstallRunner.lua:40: Executing installer for Package(name=lua-language-server) {
+  debug = false,
+  force = false,
+  strict = false
+}
+[ERROR Sat Mar  7 00:37:03 2026] ...zy/mason.nvim/lua/mason-core/installer/InstallRunner.lua:93: Installation failed for Package(name=stylua) error="The current platform is unsupported."
+[ERROR Sat Mar  7 00:37:03 2026] ...zy/mason.nvim/lua/mason-core/installer/InstallRunner.lua:93: Installation failed for Package(name=lua-language-server) error="The current platform is unsupported."
+[INFO  Sat Mar  7 00:37:22 2026] ...zy/mason.nvim/lua/mason-core/installer/InstallRunner.lua:40: Executing installer for Package(name=stylua) {
+  debug = false,
+  force = false,
+  strict = false
+}
+[INFO  Sat Mar  7 00:37:23 2026] ...zy/mason.nvim/lua/mason-core/installer/InstallRunner.lua:40: Executing installer for Package(name=lua-language-server) {
+  debug = false,
+  force = false,
+  strict = false
+}
+[ERROR Sat Mar  7 00:37:23 2026] ...zy/mason.nvim/lua/mason-core/installer/InstallRunner.lua:93: Installation failed for Package(name=stylua) error="The current platform is unsupported."
+[ERROR Sat Mar  7 00:37:23 2026] ...zy/mason.nvim/lua/mason-core/installer/InstallRunner.lua:93: Installation failed for Package(name=lua-language-server) error="The current platform is unsupported."
+[INFO  Sat Mar  7 00:38:02 2026] ...zy/mason.nvim/lua/mason-core/installer/InstallRunner.lua:40: Executing installer for Package(name=stylua) {
+  debug = false,
+  force = false,
+  strict = false
+}
+[INFO  Sat Mar  7 00:38:02 2026] ...zy/mason.nvim/lua/mason-core/installer/InstallRunner.lua:40: Executing installer for Package(name=lua-language-server) {
+  debug = false,
+  force = false,
+  strict = false
+}
+[ERROR Sat Mar  7 00:38:02 2026] ...zy/mason.nvim/lua/mason-core/installer/InstallRunner.lua:93: Installation failed for Package(name=stylua) error="The current platform is unsupported."
+[ERROR Sat Mar  7 00:38:02 2026] ...zy/mason.nvim/lua/mason-core/installer/InstallRunner.lua:93: Installation failed for Package(name=lua-language-server) error="The current platform is unsupported."
