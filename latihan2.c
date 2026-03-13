@@ -3,32 +3,48 @@
 
 int main(){
 
-  // belajar tentang user input
+  int nomor;
+  char namapembeli[10];
+  char namabarang[10];
+  float harga;
+  char matauang;
+  char ok[3];
 
-  int umur;
-  float tb;
-  char peringkat;
-  char nama[10];
+  // user input excercise lagi
 
-  printf("masukkan umur kamu: ");
-  scanf("%d", &umur);
+  printf("~~~ MOHON ISI APAPUN DIBAWAH INI DENGAN BENAR ~~~\n");
+  printf("kamu mengerti? (yes/no) ");
+  scanf("%s", ok);
+  printf("jawaban kamu: %s. bagus!\n \n", ok);
 
-  printf("masukkan tinggi badan: ");
-  scanf("%f", &tb);
+  printf("masukkan nomor urut anda: ");
+  scanf("%d", &nomor);
 
-  printf("masukkan peringkat anda: ");
-  scanf("%c", &peringkat);
-  
+  (void)getchar();
   printf("masukkan nama anda: ");
-  scanf("%s", nama);
-  printf("\n");
+  fgets(namapembeli, sizeof(namapembeli), stdin);
+  strspn[namapembeli(namapembeli, "\n")]=0;
+
+  (void)getchar();
+  printf("masukkan nama barang: ");
+  fgets(namapembeli, sizeof(namapembeli), stdin);
+  strspn[namapembeli(namapembeli, "\n")]=0;
+
+  printf("masukkan harga barang (spesifik): ");
+  scanf("%f", &harga);
+
+  printf("masukkan simbol mata uang-nya: \n \n");
+  scanf(" %c", matauang);
 
 
+  printf("nomor urut anda = %d\n", nomor);
+  printf("nama anda = %s\n", nama);
+  printf("nama barang anda = %s\n", namabarang);
+  printf("harga barang anda = %f\n", harga);
+  printf("simbol mata uang anda = %c\n \n", );
 
-  printf("nama kamu %d\n", umur);
-  printf("tinggi badan kamu %.2f\n", tb);
-  printf("peringkat kamu %c\n", peringkat);
-  printf("nama kamu %s\n", nama);
-  
+  printf("dah gt aj.");
+
   return 0;
+  
 }
