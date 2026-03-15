@@ -20,28 +20,32 @@ int main(){
   printf("masukkan nomor urut anda: ");
   scanf("%d", &nomor);
 
-  (void)getchar();
-  printf("masukkan nama anda: ");
+  
+  printf("masukkan nama lengkap anda: ");
   fgets(namapembeli, sizeof(namapembeli), stdin);
-  strspn[namapembeli(namapembeli, "\n")]=0;
+  namapembeli[strcspn(namapembeli, "\n")]=0;
 
-  (void)getchar();
   printf("masukkan nama barang: ");
-  fgets(namapembeli, sizeof(namapembeli), stdin);
-  strspn[namapembeli(namapembeli, "\n")]=0;
+  fgets(namabarang, sizeof(namabarang), stdin);
+  namabarang[strcspn(namabarang, "\n")]=0;
 
   printf("masukkan harga barang (spesifik): ");
   scanf("%f", &harga);
+  
+  (void)getchar();
+  printf("masukkan simbol mata uang-nya: ");
+  scanf(" %c", &matauang);
 
-  printf("masukkan simbol mata uang-nya: \n \n");
-  scanf(" %c", matauang);
-
-
-  printf("nomor urut anda = %d\n", nomor);
-  printf("nama anda = %s\n", nama);
+  printf("\nnomor urut anda = %d\n", nomor);
+  printf("nama anda = %s\n", namapembeli);
   printf("nama barang anda = %s\n", namabarang);
   printf("harga barang anda = %f\n", harga);
-  printf("simbol mata uang anda = %c\n \n", );
+  printf("simbol mata uang anda = %c\n \n", matauang);
+
+  printf("nomor urut anda %d, lalu nama anda itu %s\n,"
+         "setelah itu nama barang anda %s, yang harganya %f\n"
+         "dann simbol mata uangnya iti %c\n", nomor, namapembeli,
+         namabarang, harga, matauang);
 
   printf("dah gt aj.");
 
