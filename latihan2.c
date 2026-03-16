@@ -41,15 +41,15 @@ int main(){
   printf("\nnomor urut anda = %d\n", nomor);
   printf("nama anda = %s\n", namapembeli);
   printf("nama barang anda = %s\n", namabarang);
-  printf("harga barang anda = %f\n", harga);
+  printf("harga barang anda = %.3f\n", harga);
   printf("simbol mata uang anda = %s\n \n", matauang);
 
   printf("nomor urut anda %d, lalu nama anda itu %s\n,"
-         "setelah itu nama barang anda %s, yang harganya %f\n"
-         "dann simbol mata uangnya itu %s\n", nomor, namapembeli,
+         "setelah itu nama barang anda %s, yang harganya %.3f %s\n"
+          , nomor, namapembeli,
          namabarang, harga, matauang);
 
-  printf("dah gt aj.");
+  printf("\ndah gt aj.");
 
   return 0;
   
