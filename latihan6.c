@@ -1,15 +1,23 @@
-#include <stdio.h>
-#include <math.h>
+ #include <stdio.h>
+ #include <stdio.h>
 
-int main() {
-    for (int angle = 0; angle < 360; angle += 30) {
-        double rad = angle * M_PI / 180.0;
+ int main(){
 
-        double x = cos(rad);
-        double y = sin(rad);
+   char input[30];
 
-        printf("Sudut %d -> (%.2f, %.2f)\n", angle, x, y);
-    }
+   printf("how's your day, homieee?? (good/bad/neutral):..  ");
+   scanf("%s", input);
+   printf("\n");
 
-    return 0;
-}
+   if (strcmp(input, "good")==0){
+     printf("GLAD TO HEAR THAT BROOOO!! LET'S FUKING GOOOOO!\n");
+   } else if (strcmp(input, "bad")==0){
+     printf("YO BRO IT'S COMPLETELY ALRIGHT! JUST KEEP POSITIVE.\n");
+   } else if (strcmp(input, "neutral")==0){
+     printf("K\n");
+   } else {
+     printf("choose from that three dawg!!\n");
+   }
+
+   return 0;
+ }
