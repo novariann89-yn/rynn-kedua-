@@ -1,23 +1,21 @@
- #include <stdio.h>
- #include <stdio.h>
+#include <stdio.h>
+#include <math.h>
 
- int main(){
+int main(){
 
-   char input[30];
+  float a;
+  float hasil;
+  float c;
 
-   printf("how's your day, homieee?? (good/bad/neutral):..  ");
-   scanf("%s", input);
-   printf("\n");
+  printf("masukkan angka yang mau di kuadrat: ");
+  scanf("%f", &a);
 
-   if (strcmp(input, "good")==0){
-     printf("GLAD TO HEAR THAT BROOOO!! LET'S FUKING GOOOOO!\n");
-   } else if (strcmp(input, "bad")==0){
-     printf("YO BRO IT'S COMPLETELY ALRIGHT! JUST KEEP POSITIVE.\n");
-   } else if (strcmp(input, "neutral")==0){
-     printf("K\n");
-   } else {
-     printf("choose from that three dawg!!\n");
-   }
+  printf("mau di kuadrat berapa?: ");
+  scanf("%f", &c);
 
-   return 0;
- }
+  hasil=pow(a, c);
+  printf("hasil kuadrat dari %f pangkat %f adalah %f\n",
+         a, c, hasil);
+
+  return 0;
+}

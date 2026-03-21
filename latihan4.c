@@ -55,7 +55,7 @@ int main(){
   printf("log10 dari %.2f = %.2f\n", b, log10(b));
   printf("log10 dari %.2f = %.2f\n", c, log10(c));
   printf("^^^ log10 atau logaritma basis 10\n \n");
-
+  
 
 
   float yo=70;
