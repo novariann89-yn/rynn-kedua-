@@ -3,19 +3,26 @@
 
 int main(){
 
-  float a;
-  float hasil;
-  float c;
+  double radius;
+  double area;
+  double surface;
+  double volume;
+  double pi=3.141592;
 
-  printf("masukkan angka yang mau di kuadrat: ");
-  scanf("%f", &a);
+  printf("--- penghitung area, surface, dan volume lingkaran ---\n \n");
+  printf("masukkan radius: ");
+  scanf("%lf", &radius);
+  printf("\n");
 
-  printf("mau di kuadrat berapa?: ");
-  scanf("%f", &c);
+  area=pi*pow(radius, 2);
+  surface=4*pi*pow(radius, 2);
+  volume=(4.0/3.0)*pi*pow(radius, 3);
 
-  hasil=pow(a, c);
-  printf("hasil kuadrat dari %f pangkat %f adalah %f\n",
-         a, c, hasil);
+  printf("hasil area nya adalah %.2f\n", area);
+  printf("hasil surface nya adalaha %.2f\n", surface);
+  printf("hasil volume nya adalah %.2f\n \n", volume);
+  printf("thanks.\n");
+
 
   return 0;
 }
