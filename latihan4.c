@@ -2,30 +2,36 @@
 
 int main(){
 
-  int choice=0;
-  float kgs=0.0f;
-  float lbs=0.0f;
+  // mencoba membuat tiny program pakai switch statement
+  int nomor;
 
-  printf("weight converter program\n");
-  printf("1. kg to lbs\n");
-  printf("2. lbs to kgs\n");
-  printf("choose between both (1 or 2): ");
-  scanf("%d", choice);
+  printf("masukkan nomor antara 1-7 untuk hari : ");
+  scanf("%d", &nomor);
 
-  if (choice == 1){
-    printf("input weight in kgs\n");
-    scanf("%f", &kgs);
-    lbs=kgs*2.20462;
-    printf("%.2f kgs is equal to %.2f lbs\n", kgs, lbs);
+  switch(nomor){
+    case 1:
+    printf("hari senin, malas banar\n");
+    break;
+    case 2:
+    printf("hari selasa, masi cukup malas sih\n");
+    break;
+    case 3:
+    printf("hari rabu, oh aja\n");
+    break;
+    case 4:
+    printf("hari kamis, lumayan laa\n");
+    break;
+    case 5:
+    printf("hari jumat, okeee let's go\n");
+    break;
+    case 6:
+    printf("hari sabtu, uuuuyyeaaaaaahhh easy dayy\n");
+    break;
+    case 7:
+    printf("hari minggu, enjoy.\n");
+    break;
+    default:
+    printf("masukkan input dengan tepat!! pilih antara 1-7\n");
   }
-  else if (choice == 2){
-    printf("input weight in kgs\n");
-    scanf("%f", &lbs);
-    kgs=lbs/2.20462;
-    printf("%.2f lbs is equal to %.2f kgs\n", lbs, kgs);
-  }
-  else {
-    printf("invalid input! please choose either 1 or 2!!\n");
-  }
-
+  return 0;
 }

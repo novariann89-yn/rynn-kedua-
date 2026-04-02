@@ -1,32 +1,36 @@
 #include <stdio.h>
 
 int main(){
-
-  char choice;
-  float kgs=0.0f;
-  float lbs=0.0f;
-
-  printf("--- weight conversion program ---\n");
-  printf("1. ubah dari KGs ke LBs\n");
-  printf("2. ubah dari LBs ke KGs\n");
-  printf("pilih (1 or 2) = ");
-  scanf("%c", &choice);
-
-  if (choice == '1'){
-    printf("masukkan beban dalam KGs = ");
-    scanf("%f", &kgs);
-    lbs=kgs*2.20462;
-    printf("hasil nya = %.2f KGs sama dengan %.2f LBs\n", kgs, lbs);
-  }
-  else if (choice == '2'){
-    printf("masukkan beban dalam LBs = ");
-    scanf("%f", &lbs);
-    kgs=lbs/2.20462;
-    printf("hasil nya = %.2f LBs sama dengan %.2f KGs\n", lbs, kgs);
-  }
-  else {
-    printf("masukkan input yang benar! pilih 1 atau 2\n");
-  }
-
-  return 0;
+    int hari;
+    
+    printf("masukkan angka hari (1-7): ");
+    scanf("%d", &hari);
+    
+    switch(hari){
+        case 1:
+            printf("Senin\n");
+            break;
+        case 2:
+            printf("Selasa\n");
+            break;
+        case 3:
+            printf("Rabu\n");
+            break;
+        case 4:
+            printf("Kamis\n");
+            break;
+        case 5:
+            printf("Jumat\n");
+            break;
+        case 6:
+            printf("Sabtu\n");
+            break;
+        case 7:
+            printf("Minggu\n");
+            break;
+        default:
+            printf("angka tidak valid!\n");
+    }
+    
+    return 0;
 }
