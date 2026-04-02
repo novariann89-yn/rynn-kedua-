@@ -1,36 +1,48 @@
 #include <stdio.h>
 
 int main(){
-    int hari;
-    
-    printf("masukkan angka hari (1-7): ");
-    scanf("%d", &hari);
-    
-    switch(hari){
-        case 1:
-            printf("Senin\n");
-            break;
-        case 2:
-            printf("Selasa\n");
-            break;
-        case 3:
-            printf("Rabu\n");
-            break;
-        case 4:
-            printf("Kamis\n");
-            break;
-        case 5:
-            printf("Jumat\n");
-            break;
-        case 6:
-            printf("Sabtu\n");
-            break;
-        case 7:
-            printf("Minggu\n");
-            break;
-        default:
-            printf("angka tidak valid!\n");
-    }
-    
-    return 0;
+
+  int angka;
+
+// ini else if biasa
+
+  printf("pilih angka antara 1 - 3 : ");
+  scanf("%d", &angka);
+
+  if (angka == 1){
+    printf("lu pilih satu, dh gt aj hehe\n");
+  }
+  else if (angka == 2){
+    printf("lu pilih angka 2, dh gt aja hehe\n");
+  }
+  else if (angka == 3){
+    printf("lu pilih angka 3, dh gt aja hehe\n");
+  }
+  else {
+    printf("masukin angka yg bener dongok lu\n");
+  }
+
+  // nah kalo yang ini nested if
+
+  char huruf;
+  printf("pilih hurus a, b, atau c : ");
+  scanf("%c", &huruf);
+
+  if (huruf == 'a'){
+    printf("lu pilih huruf a disini\n");
+    if (huruf == 'b'){
+      printf("nah lu pilih b, jadi ngelewatin a\n");
+      if (huruf == 'c'){
+        printf("nah terakhir lu pilih c, berarti ngelewatin a sama b\n");
+      } else {
+        printf("lu ga pilih c\n");
+      }
+    } else {
+      printf("lu ga pilih b\n");
+    } 
+  } else {
+    printf("lu ga pilih a\n");
+  }
+
+  return 0;
 }
