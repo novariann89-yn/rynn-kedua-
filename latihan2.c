@@ -23,7 +23,7 @@ int main(){
   (void)getchar();
   printf("masukkan nama lengkap anda: ");
   fgets(namapembeli, sizeof(namapembeli), stdin);
-  namapembeli[strlen(namapembeli)-1]='\0';
+  namapembeli[strlen(namapembeli - 1)]='\0';
 
   printf("masukkan nama barang: ");
   fgets(namabarang, sizeof(namabarang), stdin);

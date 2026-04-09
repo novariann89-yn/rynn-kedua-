@@ -1,29 +1,40 @@
 #include <stdio.h>
 
 int main(){
+  // latihan membuat program menggunakan nested if
 
-  char huruf;
-  printf("pilih antara a, b, atau c : ");
-  scanf("%c", &huruf);
+  int num;
 
-  if (huruf == 'a'){
-    printf("lu pilih huruf a disini\n");
-    if (huruf == 'b'){
-      printf("nah lu pilih b, jadi ngelewatin a\n");
-      if (huruf == 'c'){
-        printf("nah terakhir lu pilih c, berarti ngelewatin a sama b\n");
+  printf("pilih nomor antara 1-100 : ");
+  scanf("%d", &num);
+
+  if (num >= 1){
+    printf("kamu berada di level 1! dimana ini diantara 1-20\n");
+    if (num >= 21){
+      printf("kamu berada di level 2! dimana ini diantara 21-40\n");
+      if (num >= 41){
+        printf("kamu berada di level 3! dimana ini diantara 41-60\n");
+        if (num >= 61){
+          printf("kamu berada di level 4! dimana ini diantara 61-80\n");
+          if (num >= 81 && num < 100){
+            printf("kamu berada di level 5! dimana ini diantara 81-100\n");
+            if (num > 100){
+          } else {
+            printf("else nya 81>, berarti input kamu 61-80\n");
+          }
+        } else {
+          printf("else nya 61>, berarti input kamu 41-60\n");
+        }
       } else {
-        printf("lu ga pilih c\n");
+        printf("else nya 41>, berarti input kamu 21-40\n");
       }
     } else {
-      printf("lu ga pilih b\n");
-    } 
+      printf("else nya 21>, berarti input kamu 1-20\n");
+    }
   } else {
-    printf("lu ga pilih a\n");
+    printf("else nya 1>, berarti input kamu 0\n");
   }
-
   return 0;
 
-  // anyinggg salah pengertian ternyata, padahal angka tu gabisa pake > or <
-  // malah ku pakein nested if ah ah
+  }
 }
