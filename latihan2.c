@@ -10,7 +10,7 @@ int main(){
   char matauang[20];
   char ok[20];
 
-  // user input excercise lagi
+  // user input excercise lagii
 
   printf("~~~ MOHON ISI APAPUN DIBAWAH INI DENGAN BENAR ~~~\n");
   printf("kamu mengerti? (yes/no) ");
@@ -20,14 +20,14 @@ int main(){
   printf("masukkan nomor urut anda: ");
   scanf("%d", &nomor);
 
-  (void)getchar();
+  (void)getchar(); 
   printf("masukkan nama lengkap anda: ");
   fgets(namapembeli, sizeof(namapembeli), stdin);
-  namapembeli[strlen(namapembeli - 1)]='\0';
+  namapembeli[strcspn(namapembeli, "\n")]=0;
 
   printf("masukkan nama barang: ");
   fgets(namabarang, sizeof(namabarang), stdin);
-  namabarang[strlen(namabarang)-1]='\0';
+  namabarang[strcspn(namabarang, "\n")]=0;
 
   printf("masukkan harga barang (spesifik): ");
   scanf("%f", &harga);
@@ -35,7 +35,8 @@ int main(){
   (void)getchar();
   printf("masukkan simbol mata uang-nya: ");
   fgets(matauang, sizeof(matauang), stdin);
-  matauang[strlen(matauang)-1]='\0';
+  matauang[strcspn(matauang, "\n")]=0;
+  
   printf("\n");
 
   printf("\nnomor urut anda = %d\n", nomor);

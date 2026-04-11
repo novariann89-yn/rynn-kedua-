@@ -11,11 +11,11 @@ int main(){
 
   printf("masukkan apapun (pertama): ");
   fgets(item1, sizeof(item1), stdin);
-  item1[strcspn(item1, "\n")]=0; 
+  item1[strcspn(item1, "\n")
 
   printf("masukkan apapun (kedua): ");
   fgets(item2, sizeof(item2), stdin);
-  item2[strcspn(item2, "\n")]=0; 
+  item2[strcspn(item2, "\n")]=0;
 
   printf("masukkan apapun (ketiga): ");
   fgets(item3, sizeof(item3), stdin);
