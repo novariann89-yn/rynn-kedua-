@@ -5,7 +5,7 @@ int main(){
   
   int num1;
   int num2;
-  char op[5];
+  char op[0];
 
   printf("masukkan angka pertama: ");
   scanf("%d", &num1);
@@ -14,7 +14,7 @@ int main(){
   scanf("%d", &num2);
 
   printf("masukkan jenis operasi (+, -, *, /): ");
-  scanf("%c", &op);
+  scanf(" %c", &op[0]);
 
   
 
