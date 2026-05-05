@@ -12,8 +12,8 @@ int main(){
          "2. 'persen'f adalah untuk float atau angka desimal atau pecahan\n"
          "3. 'persen'lf adalah double untuk desimal juga but dengan memori lebih besar\n"
          "4. 'persen'c adalah untuk charachter yaitu berisi satu karakter\n"
-         "5. 'persen's adalah untuk string or charachter dengan ukuran\n");
-  printf("ayola anyig, kotak ijo nya error lagi\n");
+         "5. 'persen's adalah untuk string or charachter dengan ukuran\n \n");
+  printf("ayola anyig, kotak ijo nya error lagi, ayo anyingggg\n");
 
 return 0;
 }
