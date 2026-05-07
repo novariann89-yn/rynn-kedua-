@@ -15,7 +15,7 @@ int main(){
          "6.  circle calculator program\n"
          "7.  interest calculator program\n"
          "8.  if statement\n"
-         "9.  weight converter program"
+         "9.  weight converter program\n"
          "10. temprature program\n"
          "11. switches\n"
          "12. nested if\n"
