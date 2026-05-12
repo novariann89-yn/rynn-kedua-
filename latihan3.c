@@ -1,4 +1,6 @@
 #include <stdio.h>
+#include <stdbool.h>
+#include <math.h>
 
 int main(){
 
@@ -33,8 +35,35 @@ int main(){
 
   float hasil=0.0;
   hasil=jumlah*harga;
-  printf("hasil >>> total tagihan anda = %.3f\n", hasil);
+  printf("hasil >>> total tagihan anda = %.3f\n \n", hasil);
 
+
+  //SIMPLEST CIRCLE CALCULATOR PROGRAM
+  char a[50]="PROGRAM SIMPLE KALKULATOR LINGKARAN ATAU BOLA\n";
+  printf("%40s\n", a);
+  printf("\n");
+  double area=0.0;
+  double radius=0.0;
+  double volume=0.0;
+  double AreaPermukaan=0.0;
+  double PI=3.14159;
+
+  
+  
+  printf("masukkan angka radius nya.. ");
+  scanf("%lf", &radius);
+
+  printf("  ↓↓↓ HASILNYA ↓↓↓\n \n");
+
+  area=PI*pow(radius, 2);
+  printf("1. area = %.3lf\n", area);
+
+  double patga=4/3;
+  volume=patga*PI*pow(radius, 3);
+  printf("2. volume = %3lf\n", volume);
+
+  AreaPermukaan=4*PI*pow(radius, 2);
+  printf("3. Area Permukaan = %3lf\n", AreaPermukaan);
 
 
   return 0;

@@ -7,12 +7,12 @@ int main(){
   printf("%s",teks);
   printf("\n");
 
-  printf("1.  format specifier\n"
-         "2.  arithmetic operations\n"
-         "3.  enter user name\n"
-         "4.  code shopping chart program\n"
-         "5.  mad libs game mark zuckerberg program\n"
-         "6.  circle calculator program\n"
+  printf("1.  format specifier √\n"
+         "2.  arithmetic operations √\n"
+         "3.  enter user name √\n"
+         "4.  code shopping chart program √\n"
+         "5.  mad libs game mark zuckerberg program (gapenting dah keknya)\n"
+         "6.  circle calculator program √\n"
          "7.  interest calculator program\n"
          "8.  if statement\n"
          "9.  weight converter program\n"
