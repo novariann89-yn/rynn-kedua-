@@ -49,6 +49,12 @@ int main(){
   }
 
 
+  printf("\n");
+  char b[50]="↓↓↓ ANOTHER IF ELSE ↓↓↓\n";
+  printf("%30s", b);
+  
+
+
 
   return 0;
 }
