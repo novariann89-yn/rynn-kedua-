@@ -3,23 +3,30 @@
 #include <string.h>
 
 int main(){
-  bool isNyala;
+
+  bool isSeru;
   char yesno[10];
 
-  printf("ketik yes jika lampunya nyala dan no jika tidak.. ");
+  printf("ketik yes jika itu seru dan no jika tidak.. ");
   scanf("%s", yesno);
 
   if (strcmp(yesno, "yes")==0){
-    isNyala=true;
+    isSeru=true;
+  } else if (strcmp(yesno, "no")==0){
+    isSeru=false;
   } else {
-    isNyala=false;
+    printf("tolong pilih yes atau no!\n");
+    return 1;
   }
 
-  if (isNyala){
-    printf("ya bg lampunya nyala!\n");
-  } else {
-    printf("kgk bg lampunya mati\n");
-  }
+
+  if (isSeru){
+      printf("YOI BGG SERU TADI TU!!\n");
+    } else {
+      printf("kgk seru si bang menurut ku\n");
+    }
+
+  
 
   return 0;
 }
