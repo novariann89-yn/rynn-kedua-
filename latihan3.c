@@ -63,7 +63,34 @@ int main(){
   printf("2. volume = %3lf\n", volume);
 
   AreaPermukaan=4*PI*pow(radius, 2);
-  printf("3. Area Permukaan = %3lf\n", AreaPermukaan);
+  printf("3. Area Permukaan = %3lf\n \n \n", AreaPermukaan);
+
+
+
+  // mempelajari ulang switch statement
+  int num=0;
+
+  printf("   ↓↓↓ Switches Statement ↓↓↓\n"
+         "pilih 1, 2, atau 3 = ");
+  scanf("%d", &num);
+
+  switch(num){
+    case 1:
+    printf("ok lu pilih 1 y\n");
+    break;
+
+    case 2:
+    printf("ok lu pilih 2 y\n");
+    break;
+
+    case 3:
+    printf("ok lu pilih 3 y\n");
+    break;
+
+      default:
+    printf("masukin input yang bener dongok\n"
+           "pilih noooh\n");
+  }
 
 
   return 0;
