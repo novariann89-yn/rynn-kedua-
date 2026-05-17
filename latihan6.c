@@ -4,29 +4,30 @@
 
 int main(){
 
-  bool isSeru;
+  // penggunaan if else dengan boolean
+
+  bool isNgantuk;
   char yesno[10];
 
-  printf("ketik yes jika itu seru dan no jika tidak.. ");
-  scanf("%s", yesno);
+  printf("bang apakah lu ngantuk?\n"
+         "jawab dengan yes atau no = ");
+  scanf(" %c", yesno);
 
   if (strcmp(yesno, "yes")==0){
-    isSeru=true;
+    isNgantuk=true;
   } else if (strcmp(yesno, "no")==0){
-    isSeru=false;
+    isNgantuk=false;
   } else {
-    printf("tolong pilih yes atau no!\n");
+    printf("masukin input yang bener bg\n");
     return 1;
   }
 
+  if (isNgantuk){
+    printf("hhh iya bg gw juga ngantuk bener ini\n");
+  } else {
+    printf("buset masa ga ngantuk si lu bang\n");
+  }
 
-  if (isSeru){
-      printf("YOI BGG SERU TADI TU!!\n");
-    } else {
-      printf("kgk seru si bang menurut ku\n");
-    }
-
-  
 
   return 0;
 }
