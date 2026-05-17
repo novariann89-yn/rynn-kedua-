@@ -1,25 +1,38 @@
 #include <stdio.h>
 #include <string.h>
 
-int main(){
+int main (){
 
-  //Simple nested if program 
-  //tentang mengecek nilai
+  int nilai;
 
-  int num=0;
-
-  printf("masukkan nilai anda.. ");
-  scanf("%d", &num);
-
-  if (num > 0){
-    printf("sayang banget bro, dibawah kkm, lu gagal!\n");
+  // PROGRAM PENGECEK NILAI
+  // mengetes apakah aku benwr benar paham nested if atau belum
+  
+  printf("   ↓↓↓ PROGRAM PENGECEK NILAI\n");
+  printf("masukkan nilai anda = ");
+  scanf("%d", &nilai);
+  
+  if (nilai>=0&&nilai<70){
+    printf("nilai kamu %d! Dibawah KKM, jadi nggak dapet apa apa\n", nilai);
   } else {
-    printf("*tidak dibawah kkm (else nya =>0)");
-  } if (num > 60){
-    printf("nilai kamu %d, oke la udah masuk kkm\n", num);
-  } else {
-    printf("nilai lu dibawah kkm ya?\n");
+    printf("else 0 70\n");
+  }   if (nilai>=70&&nilai<80){
+      printf("nilai kamu %d! Diatas KKM, kamu dapet hadiah level 1!\n", nilai);
+  }   else {
+      printf("else 70 80\n");
+  }     if (nilai>=80&&nilai<90){
+        printf("nilai kamu %d! Diatas KKM, kamu dapat hadiah level 2!!\n", nilai);
+  }     else {
+        printf("else 80 90\n");
+  }       if (nilai>=90&&nilai<=100){
+          printf("nilai kamu %d! diatas KKM, kamu dapat hadiah level 3!!!\n", nilai);
+  }       else {
+          printf("else 90 100\n");
+  }         if (nilai>100&&nilai<0){
+    printf("invalid! masukin nilai yang bener bro (diatas 0 dan dibawah 100)\n");
   }
+
+
 
 
 
