@@ -1,32 +1,36 @@
 #include <stdio.h>
-#include <stdbool.h>
-#include <string.h>
+#include <math.h>
 
 int main(){
 
-  // penggunaan if else dengan boolean
+  int num1;
+  int num2;
+  int hsil;
+  char op;
 
-  bool isNgantuk;
-  char yesno[10];
+  printf("   ↓↓↓ PROGRAM KALKULATOR SIMPEL ↓↓↓\n");
+  printf("\n");
+  printf("masukkan angka pertama = ");
+  scanf("%d", &num1);
 
-  printf("bang apakah lu ngantuk?\n"
-         "jawab dengan yes atau no = ");
-  scanf(" %c", yesno);
+  printf("masukkan jenis operasi (+ or * or /) = ");
+  scanf(" %c", &op);
 
-  if (strcmp(yesno, "yes")==0){
-    isNgantuk=true;
-  } else if (strcmp(yesno, "no")==0){
-    isNgantuk=false;
+  printf("masukkan angka kedua = ");
+  scanf("%d", &num2);
+
+  if (op=='+'){
+    hsil=num1+num2;
+  } else if (op=='*'){
+    hsil=num1*num2;
+  } else if (op=='/'){
+    hsil=num1/num2;
   } else {
-    printf("masukin input yang bener bg\n");
-    return 1;
+    printf("error!! masukkan input yang benar!\n");
   }
 
-  if (isNgantuk){
-    printf("hhh iya bg gw juga ngantuk bener ini\n");
-  } else {
-    printf("buset masa ga ngantuk si lu bang\n");
-  }
+  printf("\n");
+  printf("perhitungan kamu %d %c %d hasilnya %d\n", num1, op, num2, hsil);
 
 
   return 0;
