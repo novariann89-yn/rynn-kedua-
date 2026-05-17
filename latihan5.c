@@ -1,28 +1,27 @@
 #include <stdio.h>
-#include <stdbool.h>
-#include <string.h>   // Butuh ini untuk fungsi strcmp()
+#include <string.h>
 
-int main() {
-    bool isSeger;      // Boolean: true atau false
-    char yesno[10];    // String untuk menampung input "yes" atau "no"
+int main(){
 
-    printf("ketik yes kalau seger dan no kalau tidak.. ");
-    scanf("%s", yesno);
+  //Simple nested if program 
+  //tentang mengecek nilai
 
-    // Periksa string yang dimasukkan user, ubah jadi boolean
-    if (strcmp(yesno, "yes") == 0) {
-        isSeger = true;   // User ketik "yes" → minuman seger
-    } else {
-        isSeger = false;  // Selain "yes" → tidak seger
-    }
+  int num=0;
 
-    // Sekarang gunakan boolean di if-else
-    if (isSeger == true) {
-        printf("iya seger bro minumannya\n");
-    } else {
-        printf("kagak seger minumannya\n");
-    }
+  printf("masukkan nilai anda.. ");
+  scanf("%d", &num);
 
-    return 0;
+  if (num > 0){
+    printf("sayang banget bro, dibawah kkm, lu gagal!\n");
+  } else {
+    printf("*tidak dibawah kkm (else nya =>0)");
+  } if (num > 60){
+    printf("nilai kamu %d, oke la udah masuk kkm\n", num);
+  } else {
+    printf("nilai lu dibawah kkm ya?\n");
+  }
+
+
+
+  return 0;
 }
-
