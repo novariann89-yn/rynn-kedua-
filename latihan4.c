@@ -1,32 +1,21 @@
 #include <stdio.h>
-#include <string.h>
 
-void belajar(char name[], int age){
-  printf("saya ingat saya pernah menulis sesuatu\n");
-  printf("waktu saya menggunakan code editor sebelumnya\n");
-  printf("disana saya menjelaskan bahwa..\n");
-  printf("belajar adalah keputusan pengubah hidup terbaik\n");
-  printf("nama saya %s dan saya berusia %d tahun\n \n", name, age);
+float pembagian(float a, float b){
+  return a / b;
 }
 
 int main(){
-  char name[20];
-  int age;
 
-  printf("masukkan nama anda = ");
-  fgets(name, sizeof(name), stdin);
-  name[strcspn(name, "\n")]=0;
+  float a;
+  float b;
 
-  printf("masukkan usia anda = ");
-  scanf("%d", &age);
+  printf("masukkan angka pertama = ");
+  scanf("%f", &a);
+  printf("masukkan angka kedua = ");
+  scanf("%f", &b);
 
-  belajar(name, age);
-  belajar(name, age);
-  belajar(name, age);
-  belajar(name, age);
-  belajar(name, age);
-  belajar(name, age);
-  belajar(name, age);
+  float hasil = pembagian(a, b);
+  printf("hasilnya %f\n", hasil);
 
   return 0;
 }
