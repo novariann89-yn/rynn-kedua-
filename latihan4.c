@@ -1,33 +1,32 @@
 #include <stdio.h>
 #include <string.h>
 
-void Words(char nama[], int umur){
-printf("saya suka belaiar\n");
-printf("saya hobi belajar\n");
-printf("belajar membuat saya merasa baik\n");
-printf("nama saya %s\n", nama);
-printf("dan umur saya %d tahun\n \n", umur);
+void belajar(char name[], int age){
+  printf("saya ingat saya pernah menulis sesuatu\n");
+  printf("waktu saya menggunakan code editor sebelumnya\n");
+  printf("disana saya menjelaskan bahwa..\n");
+  printf("belajar adalah keputusan pengubah hidup terbaik\n");
+  printf("nama saya %s dan saya berusia %d tahun\n \n", name, age);
 }
 
 int main(){
+  char name[20];
+  int age;
 
-  char nama[30];
-  int umur;
+  printf("masukkan nama anda = ");
+  fgets(name, sizeof(name), stdin);
+  name[strcspn(name, "\n")]=0;
 
-  printf("siapa nama anda? ");
-  fgets(nama, sizeof(nama), stdin);
-  nama[strcspn(nama, "\n")]=0;
+  printf("masukkan usia anda = ");
+  scanf("%d", &age);
 
-  printf("berapa umur anda? ");
-  scanf("%d", &umur);
-
-  Words(nama, umur);
-  Words(nama, umur);
-  Words(nama, umur);
-  Words(nama, umur);
-  Words(nama, umur);
-
-
+  belajar(name, age);
+  belajar(name, age);
+  belajar(name, age);
+  belajar(name, age);
+  belajar(name, age);
+  belajar(name, age);
+  belajar(name, age);
 
   return 0;
 }
