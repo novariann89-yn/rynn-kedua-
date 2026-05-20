@@ -22,7 +22,7 @@ int main(){
          "13. calculator program √\n"
          "14. logical operations √\n"
          "15. function √\n"
-         "16. return statements \n"
+         "16. return statements √\n"
          "17. variable scope\n"
          "18. function prototype\n"
          "19. while loops\n"

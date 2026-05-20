@@ -1,21 +1,24 @@
 #include <stdio.h>
 
-float pembagian(float a, float b){
-  return a / b;
+void Angka(int a, int b){
+  if (a > b){
+    printf("%d lebih besar daripada %d\n", a, b);
+  } else if (a < b){
+    printf("%d lebih besar daripada %d\n", b, a);
+  }
 }
 
 int main(){
-
-  float a;
-  float b;
+  int a;
+  int b;
 
   printf("masukkan angka pertama = ");
-  scanf("%f", &a);
-  printf("masukkan angka kedua = ");
-  scanf("%f", &b);
+  scanf("%d", &a);
 
-  float hasil = pembagian(a, b);
-  printf("hasilnya %f\n", hasil);
+  printf("masukkan angka kedua = ");
+  scanf("%d", &b);
+
+  Angka(a, b);
 
   return 0;
 }
