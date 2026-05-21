@@ -1,46 +1,40 @@
 #include <stdio.h>
-#include <stdbool.h>
 #include <string.h>
+#include <stdbool.h>
 
-void Data(char nama[20],int umur);
-bool Check(int age);
+void NamaUsia(char name[20], int age);
+bool CekUmur(int umur);
 
 int main(){
-
-  // pemanggilan function pertama
-  char nama[20];
-  int umur;
-  printf("masukkan nama kamu = ");
-  fgets(nama, sizeof(nama), stdin);
-  nama[strcspn(nama,"\n")]=0;
-
+  // 1
+  char namee[20];
+  int agee;
+  printf("masukkan nama anda = ");
+  fgets(namee, sizeof(namee), stdin);
+  namee[strcspn(namee, "\n")]=0;
   printf("masukkan usia anda = ");
-  scanf("%d", &umur);
-  Data(nama, umur);
+  scanf("%d", &agee);
+  NamaUsia(namee, agee);
 
-  //pemanggilan function kedua
-  int age;
+  // 2
+  int umurr;
   printf("\n \nmasukkan umur lagi = ");
-  scanf("%d", &age);
-
-  if (Check(age)){
-    printf("bisa kerja disini\n");
+  scanf("%d", &umurr);
+  if (CekUmur(umurr)){
+    printf("okela legal\n");
   } else {
-    printf("tidak boleh kerja disini\n");
+    printf("belum legal\n");
   }
-
-
   return 0;
-
 }
 
-void Data(char nama[20], int umur){
-  printf("nama kamu %s\n", nama);
-  printf("dan usia kamu %d\n", umur);
+void NamaUsia(char name[20], int age){
+  printf("nama anda %s\n", name);
+  printf("usia anda %d tahun\n", age);
 }
 
-bool Check(int age){
-  if (age>=16){
+bool CekUmur(int umur){
+  if (umur >= 17){
     return true;
   } else {
     return false;
