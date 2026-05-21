@@ -1,24 +1,26 @@
 #include <stdio.h>
 
-void Angka(int a, int b){
-  if (a > b){
-    printf("%d lebih besar daripada %d\n", a, b);
-  } else if (a < b){
-    printf("%d lebih besar daripada %d\n", b, a);
-  }
+int main() {
+    int pilihan = 0;
+    
+    while (pilihan != 3) {          // Selama tidak pilih "Keluar"
+        printf("\n=== MENU ===\n");
+        printf("1. Lihat saldo\n");
+        printf("2. Transfer\n");
+        printf("3. Keluar\n");
+        printf("Pilih: ");
+        scanf("%d", &pilihan);
+        
+        if (pilihan == 1) {
+            printf("Saldo: Rp 1.000.000\n");
+        } else if (pilihan == 2) {
+            printf("Transfer berhasil!\n");
+        } else if (pilihan != 3) {
+            printf("Pilihan tidak valid!\n");
+        }
+    }
+    
+    printf("Sampai jumpa!\n");
+    return 0;
 }
 
-int main(){
-  int a;
-  int b;
-
-  printf("masukkan angka pertama = ");
-  scanf("%d", &a);
-
-  printf("masukkan angka kedua = ");
-  scanf("%d", &b);
-
-  Angka(a, b);
-
-  return 0;
-}
