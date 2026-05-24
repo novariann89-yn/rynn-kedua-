@@ -25,7 +25,7 @@ int main(){
          "16. return statements √\n"
          "17. variable scope √\n"
          "18. function prototype √\n"
-         "19. while loops \n"
+         "19. while loops √\n"
          "20. for loops\n"
          "21. break and continue\n"
          "22. nested loop\n"

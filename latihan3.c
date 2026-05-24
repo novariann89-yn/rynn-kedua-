@@ -1,44 +1,23 @@
 #include <stdio.h>
 
 int main(){
+  int pilihan;
+  while (pilihan != 3){
+    printf("\n--- program cash app ---\n");
+    printf("1. cek saldo\n");
+    printf("2. transfer\n");
+    printf("3. keluar\n");
+    printf("silahkan masukkan pilihan anda = ");
+    scanf("%d", &pilihan);
 
-  // VALIDASI ANGKA 
-  int angka;
-  printf("masukkan angka positif = ");
-  scanf("%d", &angka);
-
-  while (angka <= 0){
-    printf("invalid! masukkan ulang = ");
-    scanf("%d", &angka);
-  } 
-  printf("valid! oke\n");
-
-
-  //CASH APP PROGRAM
-  int num;
-  printf("\n↓↓↓ Money App Program ↓↓↓ \n");
-  printf("1. lihat saldo\n"
-         "2. transfer\n"
-         "3. keluar\n");
-  printf("pilih = ");
-  scanf("%d", &num);
-  while (num !=3){
-    if (num == 1){
-      printf("saldo kamu 1.400.000 rupiah\n");
-      scanf("%d", &num);
-    } else if (num == 2){
-      printf("TRANSFER BERHASIL!\n");
-      scanf("%d", &num);
-    } else {
-      printf("invalid!\n");
+   if (pilihan == 1){
+      printf("\nsaldo anda = 4.500.000 rp\n");
+    } else if (pilihan == 2){
+      printf("\nTRANSFER BERHASIL!\n");
+    } else if (pilihan != 3){
+      printf("pilihan invalid! pilih diantara ketiga nomor\n");
     }
-    printf("1. lihat saldo\n"
-           "2. transfer\n"
-           "3. keluar\n");
-    printf("pilih = ");
-    scanf("%d", &num);
+  } printf("\nterimakasih telah menggunakan program ini!!\n");
 
-  }
-  printf("thank you\n");
   return 0;
 }
