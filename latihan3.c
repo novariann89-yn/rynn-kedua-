@@ -1,15 +1,16 @@
 #include <stdio.h>
-#include <unistd.h>
-
-void Jeda(int wak){
-  usleep(wak*10000);
-}
+#include <unistd.h> 
 
 int main(){
-  for(int i=1; i <= 10; i++){
-    Jeda(50);
+  int i=1;
+  for (i=1; i<=10; i++){
+    if (i == 5){
+      continue;
+    } if (i == 8){
+      break;
+    }
+    usleep(500000);
     printf("%d\n", i);
   }
-
   return 0;
 }

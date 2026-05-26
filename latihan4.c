@@ -1,26 +1,19 @@
 #include <stdio.h>
 
-int main() {
-    int pilihan = 0;
-    
-    while (pilihan != 3) {          // Selama tidak pilih "Keluar"
-        printf("\n=== MENU ===\n");
-        printf("1. Lihat saldo\n");
-        printf("2. Transfer\n");
-        printf("3. Keluar\n");
-        printf("Pilih: ");
-        scanf("%d", &pilihan);
-        
-        if (pilihan == 1) {
-            printf("Saldo: Rp 1.000.000\n");
-        } else if (pilihan == 2) {
-            printf("Transfer berhasil!\n");
-        } else if (pilihan != 3) {
-            printf("Pilihan tidak valid!\n");
-        }
-    }
-    
-    printf("Sampai jumpa!\n");
-    return 0;
-}
+int main(){
+  int num=3;
+  switch (num){
+    case 1:
+    printf("ngetik 1 ya bg\n");
+    break;
+    case 2:
+    printf("ngetik 2 ya bg\n");
+    break;
+    case 3:
+    printf("ngetik 3 ya bg\n");
+    break;
+    default:
+  }
 
+  return 0;
+}

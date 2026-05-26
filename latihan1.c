@@ -27,7 +27,7 @@ int main(){
          "18. function prototype √\n"
          "19. while loops √\n"
          "20. for loops √\n"
-         "21. break and continue\n"
+         "21. break and continue √\n"
          "22. nested loop\n"
          "23. generate random numb/er\n"
          "24. number guessing program\n"
