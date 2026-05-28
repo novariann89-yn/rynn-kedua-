@@ -1,16 +1,12 @@
 #include <stdio.h>
-#include <unistd.h> 
+#include <unistd.h>
 
 int main(){
-  int i=1;
-  for (i=1; i<=10; i++){
-    if (i == 5){
-      continue;
-    } if (i == 8){
-      break;
+for (int i = 0; i < 2; i++) {        // 🔄 Outer Loop (Baris)
+    for (int j = 0; j < 3; j++) {// 🔄 Inner Loop (Kolom)
+        printf("(%d,%d) ", i, j);// 🖨️ Cetak Koordinat
     }
-    usleep(500000);
-    printf("%d\n", i);
-  }
-  return 0;
+    printf("\n");                    // ↩️ Turun ke baris baru
 }
+}
+// BEEN FILLING MY BRAIN's GAP,IT'S IN UNDERSTANDING MENTAL MODEL OF NESTED STATEMENT.
