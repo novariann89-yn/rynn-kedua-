@@ -1,12 +1,18 @@
 #include <stdio.h>
-#include <unistd.h>
+#include <stdlib.h>
+#include <time.h>
 
 int main(){
-for (int i = 0; i < 2; i++) {        // 🔄 Outer Loop (Baris)
-    for (int j = 0; j < 3; j++) {// 🔄 Inner Loop (Kolom)
-        printf("(%d,%d) ", i, j);// 🖨️ Cetak Koordinat
-    }
-    printf("\n");                    // ↩️ Turun ke baris baru
+  int min=20;
+  int max=80;
+
+  srand(time(NULL));
+  int rnum1=(rand()%(max-min+1)+min);
+  int rnum2=(rand()%(max-min+1)+min);
+  int rnum3=(rand()%(max-min+1)+min);
+
+
+  printf("%d%d%d\n", rnum1, rnum2, rnum3);
+
+  return 0;
 }
-}
-// BEEN FILLING MY BRAIN's GAP,IT'S IN UNDERSTANDING MENTAL MODEL OF NESTED STATEMENT.
