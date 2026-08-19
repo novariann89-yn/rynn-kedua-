@@ -1,0 +1,17 @@
+# Build artifacts
+tetris
+*.o
+*.out
+
+# IDE/editor
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Hermes local data (optional - keep if you want to share plans)
+# .hermes/

@@ -1,0 +1,794 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tetris Sentinel - Cyber Security Edition</title>
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;700&family=Press+Start+2P&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-color: #020617;
+            --border-color: #10b981; /* Emerald/Terminal Green */
+            --border-glow: rgba(16, 185, 129, 0.5);
+            --accent-cyber: #06b6d4; /* Cyan */
+            --accent-error: #ef4444; /* Red */
+            --text-color: #ecfdf5;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            user-select: none;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            font-family: 'Fira Code', monospace;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            overflow: hidden;
+            /* Cyber Tech Background */
+            background: 
+                linear-gradient(rgba(2, 6, 23, 0.9), rgba(2, 6, 23, 0.9)),
+                repeating-linear-gradient(0deg, rgba(16, 185, 129, 0.03) 0px, rgba(16, 185, 129, 0.03) 1px, transparent 1px, transparent 2px),
+                repeating-linear-gradient(90deg, rgba(16, 185, 129, 0.03) 0px, rgba(16, 185, 129, 0.03) 1px, transparent 1px, transparent 2px);
+            background-size: 100% 100%, 100% 4px, 4px 100%;
+        }
+
+        .arcade-container {
+            border: 2px solid var(--border-color);
+            border-radius: 4px;
+            padding: 20px;
+            background: rgba(15, 23, 42, 0.8);
+            box-shadow: 0 0 30px rgba(0, 0, 0, 0.5), 0 0 10px var(--border-glow);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            max-width: 950px;
+            position: relative;
+            backdrop-filter: blur(10px);
+        }
+
+        h1 {
+            font-family: 'Press Start 2P', cursive;
+            font-size: 14px;
+            color: var(--border-color);
+            text-shadow: 0 0 10px var(--border-glow);
+            margin-bottom: 15px;
+            text-align: center;
+            letter-spacing: 2px;
+        }
+
+        .mode-select {
+            margin-bottom: 15px;
+            display: flex;
+            gap: 10px;
+        }
+
+        .btn {
+            font-family: 'Fira Code', monospace;
+            font-weight: bold;
+            font-size: 10px;
+            background: rgba(16, 185, 129, 0.1);
+            color: var(--border-color);
+            border: 1px solid var(--border-color);
+            padding: 8px 16px;
+            cursor: pointer;
+            border-radius: 2px;
+            transition: all 0.2s;
+            text-transform: uppercase;
+        }
+
+        .btn:hover, .btn.active {
+            background: var(--border-color);
+            color: var(--bg-color);
+            box-shadow: 0 0 15px var(--border-glow);
+        }
+
+        .game-layout {
+            display: flex;
+            gap: 25px;
+            align-items: flex-start;
+        }
+
+        .board-wrapper {
+            position: relative;
+            border: 1px solid var(--border-color);
+            background: #020617;
+            box-shadow: inset 0 0 20px rgba(0, 0, 0, 1);
+        }
+
+        canvas {
+            display: block;
+            background-color: #020617;
+        }
+
+        .sidebar {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            width: 260px;
+        }
+
+        .panel {
+            border: 1px solid rgba(16, 185, 129, 0.3);
+            background: rgba(15, 23, 42, 0.6);
+            padding: 12px;
+            border-radius: 4px;
+        }
+
+        .panel-title {
+            font-size: 10px;
+            color: var(--accent-cyber);
+            margin-bottom: 8px;
+            text-transform: uppercase;
+            font-weight: bold;
+            border-bottom: 1px solid rgba(6, 182, 212, 0.2);
+            padding-bottom: 4px;
+        }
+
+        .value {
+            font-family: 'Fira Code', monospace;
+            font-size: 18px;
+            color: var(--text-color);
+            text-shadow: 0 0 8px rgba(236, 253, 245, 0.3);
+        }
+
+        .character-box {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-top: 8px;
+            padding: 6px;
+            background: rgba(0, 0, 0, 0.2);
+            border-radius: 2px;
+        }
+
+        .char-avatar {
+            font-size: 10px;
+            color: var(--border-color);
+            white-space: pre;
+            line-height: 1.1;
+            width: 55px;
+            text-align: center;
+            font-family: 'Press Start 2P', cursive;
+        }
+
+        .char-dialogue {
+            font-size: 9px;
+            line-height: 1.4;
+            color: #94a3b8;
+            flex-grow: 1;
+            font-style: italic;
+        }
+
+        .controls-hint {
+            font-size: 9px;
+            line-height: 1.6;
+            color: #64748b;
+        }
+
+        .controls-hint span {
+            color: var(--border-color);
+            font-weight: bold;
+        }
+
+        .overlay {
+            position: absolute;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: rgba(2, 6, 23, 0.95);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            z-index: 100;
+            backdrop-filter: blur(4px);
+        }
+
+        .overlay h2 {
+            font-family: 'Press Start 2P', cursive;
+            font-size: 16px;
+            color: var(--accent-error);
+            margin-bottom: 20px;
+            text-align: center;
+            text-shadow: 0 0 10px rgba(239, 68, 68, 0.5);
+        }
+    </style>
+</head>
+<body>
+    <div class="arcade-container">
+        <h1>// TETRIS_SENTINEL.EXE</h1>
+
+        <div class="mode-select">
+            <button class="btn active" id="modeHuman" onclick="setGameMode('human')">Manual Protocol</button>
+            <button class="btn" id="modeBattle" onclick="setGameMode('battle')">Intrusion Defense (vs AI)</button>
+        </div>
+
+        <div class="game-layout">
+            <!-- Player Board -->
+            <div class="board-wrapper">
+                <canvas id="tetris" width="200" height="400"></canvas>
+                <div id="startOverlay" class="overlay">
+                    <h2 style="color: var(--border-color);">INITIATE?</h2>
+                    <button class="btn" onclick="startGame()">EXECUTE</button>
+                </div>
+                <div id="gameOverOverlay" class="overlay" style="display: none;">
+                    <h2 id="gameOverTitle">SYSTEM_FAILURE</h2>
+                    <button class="btn" onclick="startGame()">REBOOT</button>
+                </div>
+            </div>
+
+            <!-- Opponent Board (Battle Mode Only) -->
+            <div class="board-wrapper" id="aiBoardWrapper" style="display: none; border-color: var(--accent-error);">
+                <canvas id="aiTetris" width="200" height="400"></canvas>
+                <div style="position: absolute; top: 5px; left: 5px; font-size: 8px; color: var(--accent-error); background: rgba(0,0,0,0.8); padding: 4px; border: 1px solid var(--accent-error);">MALWARE_BOT</div>
+            </div>
+
+            <!-- Sidebar HUD -->
+            <div class="sidebar">
+                <!-- Mario Score -->
+                <div class="panel">
+                    <div class="panel-title">Decryption Score</div>
+                    <div class="value" id="scoreVal">0</div>
+                    <div class="character-box">
+                        <div class="char-avatar">ROOT<br>( ^_^)</div>
+                        <div class="char-dialogue" id="marioDialogue">System stable. Maintain decrypt rate.</div>
+                    </div>
+                </div>
+
+                <!-- Luigi Progress -->
+                <div class="panel">
+                    <div class="panel-title">Data Packets</div>
+                    <div style="display: flex; justify-content: space-between; margin-bottom: 6px;">
+                        <div>
+                            <div style="font-size: 8px; color: #64748b;">Cleared</div>
+                            <div class="value" id="linesVal" style="font-size:14px;">0</div>
+                        </div>
+                        <div>
+                            <div style="font-size: 8px; color: #64748b;">Peak</div>
+                            <div class="value" id="highScoreVal" style="font-size:14px;">0</div>
+                        </div>
+                    </div>
+                    <div class="character-box">
+                        <div class="char-avatar">SEC<br>( -_-)</div>
+                        <div class="char-dialogue" id="luigiDialogue">Buffer status: Nominal.</div>
+                    </div>
+                </div>
+
+                <!-- Controls & Bowser -->
+                <div class="panel" style="border-color: var(--accent-error);">
+                    <div class="panel-title" style="color: var(--accent-error);">Threat Intel</div>
+                    <div class="controls-hint">
+                        <div><span>[←/→]</span> : Align</div>
+                        <div><span>[↑]</span> : Reorient</div>
+                        <div><span>[↓]</span> : Accelerate</div>
+                        <div><span>[Space]</span> : Commit</div>
+                        <div><span>[C]</span> : Buffer Swap</div>
+                        <div><span>[A]</span> : Auto-Pilot</div>
+                    </div>
+                    <div class="character-box" style="background: rgba(239, 68, 68, 0.05);">
+                        <div class="char-avatar" style="color: var(--accent-error);">VOID<br>( >_<)</div>
+                        <div class="char-dialogue" id="bowserDialogue" style="color: #fca5a5;">ACCESS_DENIED. NOOB.</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const canvas = document.getElementById('tetris');
+        const ctx = canvas.getContext('2d');
+        ctx.scale(20, 20);
+
+        const aiCanvas = document.getElementById('aiTetris');
+        const aiCtx = aiCanvas.getContext('2d');
+        aiCtx.scale(16, 16);
+
+        const ROWS = 20;
+        const COLS = 10;
+        const AI_ROWS = 20;
+        const AI_COLS = 10;
+
+        let gameMode = 'human'; // 'human' or 'battle'
+        let aiEnabled = false;
+
+        const colors = [
+            null,
+            '#00f3ff', // I - Cyan
+            '#0000ff', // J - Blue
+            '#ff7f00', // L - Orange
+            '#ffff00', // O - Yellow
+            '#00ff00', // S - Green
+            '#a000ff', // T - Purple
+            '#ff0000'  // Z - Red
+        ];
+
+        const shapes = [
+            null,
+            [[0,0,0,0],[1,1,1,1],[0,0,0,0],[0,0,0,0]], // I
+            [[2,0,0],[2,2,2],[0,0,0]],                  // J
+            [[0,0,3],[3,3,3],[0,0,0]],                  // L
+            [[4,4],[4,4]],                              // O
+            [[0,5,5],[5,5,0],[0,0,0]],                  // S
+            [[0,6,0],[6,6,6],[0,0,0]],                  // T
+            [[7,7,0],[0,7,7],[0,0,0]]                   // Z
+        ];
+
+        function createMatrix(w, h) {
+            const matrix = [];
+            while (h--) {
+                matrix.push(new Array(w).fill(0));
+            }
+            return matrix;
+        }
+
+        const arena = createMatrix(COLS, ROWS);
+        const aiArena = createMatrix(AI_COLS, AI_ROWS);
+
+        const player = {
+            pos: {x: 0, y: 0},
+            matrix: null,
+            score: 0,
+            lines: 0,
+            level: 1,
+            shapeId: 0
+        };
+
+        const aiPlayer = {
+            pos: {x: 0, y: 0},
+            matrix: null,
+            score: 0,
+            lines: 0,
+            shapeId: 0
+        };
+
+        let highScore = localStorage.getItem('mario_tetris_highscore') || 0;
+        document.getElementById('highScoreVal').innerText = highScore;
+
+        let holdPiece = null;
+        let canHold = true;
+        let dropInterval = 1000;
+        let dropCounter = 0;
+        let lastTime = 0;
+        let isGameOver = false;
+
+        function setGameMode(mode) {
+            gameMode = mode;
+            document.getElementById('modeHuman').classList.toggle('active', mode === 'human');
+            document.getElementById('modeBattle').classList.toggle('active', mode === 'battle');
+            document.getElementById('aiBoardWrapper').style.display = mode === 'battle' ? 'block' : 'none';
+            startGame();
+        }
+
+        function createPiece(type) {
+            if (type === 'I') return 1;
+            if (type === 'J') return 2;
+            if (type === 'L') return 3;
+            if (type === 'O') return 4;
+            if (type === 'S') return 5;
+            if (type === 'T') return 6;
+            if (type === 'Z') return 7;
+            const rand = Math.floor(Math.random() * 7) + 1;
+            return rand;
+        }
+
+        function playerReset(p, ar) {
+            const id = Math.floor(Math.random() * 7) + 1;
+            p.matrix = shapes[id];
+            p.shapeId = id;
+            p.pos.y = 0;
+            p.pos.x = Math.floor((ar[0].length - p.matrix[0].length) / 2);
+            if (checkCollision(ar, p)) {
+                if (ar === arena) {
+                    isGameOver = true;
+                    document.getElementById('gameOverOverlay').style.display = 'flex';
+                    document.getElementById('bowserDialogue').innerText = "BWAHAHAHAH U NOOB! Bowser wins!";
+                }
+            }
+            canHold = true;
+        }
+
+        function checkCollision(ar, p) {
+            const m = p.matrix;
+            const o = p.pos;
+            for (let y = 0; y < m.length; ++y) {
+                for (let x = 0; x < m[y].length; ++x) {
+                    if (m[y][x] !== 0 &&
+                       (ar[y + o.y] && ar[y + o.y][x + o.x]) !== 0) {
+                        return true;
+                    }
+                }
+            }
+            return false;
+        }
+
+        function merge(ar, p) {
+            p.matrix.forEach((row, y) => {
+                row.forEach((value, x) => {
+                    if (value !== 0) {
+                        ar[y + p.pos.y][x + p.pos.x] = p.shapeId;
+                    }
+                });
+            });
+        }
+
+        function sweepArena(ar, isAi = false) {
+            let rowCount = 0;
+            outer: for (let y = ar.length - 1; y > 0; --y) {
+                for (let x = 0; x < ar[y].length; ++x) {
+                    if (ar[y][x] === 0) {
+                        continue outer;
+                    }
+                }
+                const row = ar.splice(y, 1)[0].fill(0);
+                ar.unshift(row);
+                ++y;
+                rowCount++;
+            }
+
+            if (rowCount > 0 && !isAi) {
+                player.lines += rowCount;
+                player.score += rowCount * 100 * player.level;
+                player.level = Math.floor(player.lines / 10) + 1;
+                dropInterval = Math.max(150, 1000 - (player.level - 1) * 100);
+
+                if (player.score > highScore) {
+                    highScore = player.score;
+                    localStorage.setItem('mario_tetris_highscore', highScore);
+                    document.getElementById('highScoreVal').innerText = highScore;
+                }
+
+                document.getElementById('scoreVal').innerText = player.score;
+                document.getElementById('linesVal').innerText = player.lines;
+
+                // Update Mario / Luigi dialogue based on score & lines
+                if (rowCount >= 4) {
+                    document.getElementById('marioDialogue').innerText = "TETRIS! Mama mia, incredible!";
+                } else {
+                    document.getElementById('marioDialogue').innerText = "Woohoo! Keep stacking!";
+                }
+
+                // If Battle Mode, send garbage row to AI!
+                if (gameMode === 'battle' && rowCount >= 2) {
+                    sendGarbageToAI(rowCount - 1);
+                }
+            }
+        }
+
+        function sendGarbageToAI(count) {
+            for (let i = 0; i < count; i++) {
+                aiArena.shift();
+                const garbageRow = new Array(AI_COLS).fill(8); // 8 = gray garbage block
+                garbageRow[Math.floor(Math.random() * AI_COLS)] = 0; // leave one hole
+                aiArena.push(garbageRow);
+            }
+            document.getElementById('luigiDialogue').innerText = "Sent garbage to Bowser/AI!";
+        }
+
+        function rotate(matrix, dir) {
+            for (let y = 0; y < matrix.length; ++y) {
+                for (let x = 0; x < y; ++x) {
+                    [matrix[x][y], matrix[y][x]] = [matrix[y][x], matrix[x][y]];
+                }
+            }
+            if (dir > 0) {
+                matrix.forEach(row => row.reverse());
+            } else {
+                matrix.reverse();
+            }
+        }
+
+        function playerRotate(dir) {
+            const posX = player.pos.x;
+            let offset = 1;
+            rotate(player.matrix, dir);
+            while (checkCollision(arena, player)) {
+                player.pos.x += offset;
+                offset = -(offset + (offset > 0 ? 1 : -1));
+                if (offset > player.matrix[0].length) {
+                    rotate(player.matrix, -dir);
+                    player.pos.x = posX;
+                    return;
+                }
+            }
+        }
+
+        function playerMove(dir) {
+            player.pos.x += dir;
+            if (checkCollision(arena, player)) {
+                player.pos.x -= dir;
+            }
+        }
+
+        function playerDrop() {
+            player.pos.y++;
+            if (checkCollision(arena, player)) {
+                player.pos.y--;
+                merge(arena, player);
+                playerReset(player, arena);
+                sweepArena(arena);
+            }
+            dropCounter = 0;
+        }
+
+        function hardDrop() {
+            while (!checkCollision(arena, player)) {
+                player.pos.y++;
+            }
+            player.pos.y--;
+            merge(arena, player);
+            playerReset(player, arena);
+            sweepArena(arena);
+            dropCounter = 0;
+        }
+
+        function holdPieceFunc() {
+            if (!canHold) return;
+            if (holdPiece === null) {
+                holdPiece = player.shapeId;
+                playerReset(player, arena);
+            } else {
+                const temp = player.shapeId;
+                player.shapeId = holdPiece;
+                player.matrix = shapes[holdPiece];
+                holdPiece = temp;
+                player.pos.y = 0;
+                player.pos.x = Math.floor((COLS - player.matrix[0].length) / 2);
+            }
+            canHold = false;
+        }
+
+        // Advanced Heuristic AI Bot with Board Evaluation (Aggregate Height, Complete Lines, Holes, Bumpiness)
+        function evaluateBoard(boardState) {
+            let aggregateHeight = 0;
+            let completeLines = 0;
+            let holes = 0;
+            let bumpiness = 0;
+            
+            let columnHeights = Array(COLS).fill(0);
+            for (let x = 0; x < COLS; x++) {
+                let foundHeight = false;
+                for (let y = 0; y < ROWS; y++) {
+                    if (boardState[y][x] !== 0) {
+                        columnHeights[x] = ROWS - y;
+                        aggregateHeight += columnHeights[x];
+                        foundHeight = true;
+                        break;
+                    }
+                }
+            }
+
+            for (let y = 0; y < ROWS; y++) {
+                if (boardState[y].every(cell => cell !== 0)) {
+                    completeLines++;
+                }
+            }
+
+            for (let x = 0; x < COLS; x++) {
+                let blockFound = false;
+                for (let y = 0; y < ROWS; y++) {
+                    if (boardState[y][x] !== 0) {
+                        blockFound = true;
+                    } else if (blockFound && boardState[y][x] === 0) {
+                        holes++;
+                    }
+                }
+            }
+
+            for (let x = 0; x < COLS - 1; x++) {
+                bumpiness += Math.abs(columnHeights[x] - columnHeights[x+1]);
+            }
+
+            // Heuristic scoring weights
+            return -0.510066 * aggregateHeight + 
+                    0.760666 * completeLines + 
+                   -0.356635 * holes + 
+                   -0.184483 * bumpiness;
+        }
+
+        function runAiBot() {
+            if (isGameOver) return;
+            
+            // Test all possible rotations and columns for the best score
+            let bestScore = -999999;
+            let bestX = player.pos.x;
+            let bestRotations = 0;
+
+            const originalMatrix = player.matrix;
+            const originalX = player.pos.x;
+            const originalY = player.pos.y;
+
+            for (let rot = 0; rot < 4; rot++) {
+                // Try moving across all columns
+                for (let x = -2; x < COLS; x++) {
+                    player.pos.x = x;
+                    player.pos.y = 0;
+                    
+                    // Rotate
+                    for (let r = 0; r < rot; r++) {
+                        rotateMatrix(player.matrix);
+                    }
+
+                    if (!checkCollision(arena, player)) {
+                        // Drop to bottom
+                        let y = player.pos.y;
+                        while (!checkCollision(arena, {matrix: player.matrix, pos: {x: player.pos.x, y: y + 1}})) {
+                            y++;
+                        }
+                        
+                        // Simulate merge
+                        let tempArena = arena.map(row => [...row]);
+                        player.matrix.forEach((row, ry) => {
+                            row.forEach((value, rx) => {
+                                if (value !== 0 && y + ry >= 0 && y + ry < ROWS && player.pos.x + rx >= 0 && player.pos.x + rx < COLS) {
+                                    tempArena[y + ry][player.pos.x + rx] = value;
+                                }
+                            });
+                        });
+
+                        let scoreVal = evaluateBoard(tempArena);
+                        if (scoreVal > bestScore) {
+                            bestScore = scoreVal;
+                            bestX = x;
+                            bestRotations = rot;
+                        }
+                    }
+
+                    // Reset matrix for next iteration
+                    player.matrix = originalMatrix;
+                }
+            }
+
+            // Execute best move instantly
+            player.pos.x = bestX;
+            for (let r = 0; r < bestRotations; r++) {
+                rotateMatrix(player.matrix);
+            }
+            
+            while (!checkCollision(arena, {matrix: player.matrix, pos: {x: player.pos.x, y: player.pos.y + 1}})) {
+                player.pos.y++;
+            }
+            
+            merge(arena, player);
+            playerReset(player, arena);
+            sweepArena(arena);
+            dropCounter = 0;
+        }
+
+        function rotateMatrix(matrix) {
+            const n = matrix.length;
+            for (let y = 0; y < n; ++y) {
+                for (let x = 0; x < y; ++x) {
+                    [matrix[x][y], matrix[y][x]] = [matrix[y][x], matrix[x][y]];
+                }
+            }
+            matrix.forEach(row => row.reverse());
+        }
+
+        function getGhostY() {
+            let ghostY = player.pos.y;
+            while (!checkCollision(arena, {matrix: player.matrix, pos: {x: player.pos.x, y: ghostY}})) {
+                ghostY++;
+            }
+            return ghostY - 1;
+        }
+
+        function drawMatrix(matrix, offset, targetCtx, isGhost = false) {
+            matrix.forEach((row, y) => {
+                row.forEach((value, x) => {
+                    if (value !== 0) {
+                        targetCtx.fillStyle = isGhost ? 'rgba(255,255,255,0.15)' : (value === 8 ? '#6b7280' : colors[value]);
+                        targetCtx.fillRect(x + offset.x, y + offset.y, 1, 1);
+                        targetCtx.strokeStyle = '#000';
+                        targetCtx.lineWidth = 0.05;
+                        targetCtx.strokeRect(x + offset.x, y + offset.y, 1, 1);
+                    }
+                });
+            });
+        }
+
+        function draw() {
+            // Clear Player Board
+            ctx.fillStyle = '#020208';
+            ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+            // Draw Grid Lines
+            ctx.strokeStyle = '#ffffff0a';
+            ctx.lineWidth = 0.03;
+            for(let i=0; i<COLS; i++) {
+                ctx.beginPath(); ctx.moveTo(i, 0); ctx.lineTo(i, ROWS); ctx.stroke();
+            }
+            for(let j=0; j<ROWS; j++) {
+                ctx.beginPath(); ctx.moveTo(0, j); ctx.lineTo(COLS, j); ctx.stroke();
+            }
+
+            drawMatrix(arena, {x: 0, y: 0}, ctx);
+            if (player.matrix) {
+                // Draw Ghost Piece
+                const ghostY = getGhostY();
+                drawMatrix(player.matrix, {x: player.pos.x, y: ghostY}, ctx, true);
+                // Draw Current Piece
+                drawMatrix(player.matrix, player.pos, ctx);
+            }
+
+            // Draw AI Board if Battle Mode
+            if (gameMode === 'battle') {
+                aiCtx.fillStyle = '#020208';
+                aiCtx.fillRect(0, 0, aiCanvas.width, aiCanvas.height);
+                drawMatrix(aiArena, {x: 0, y: 0}, aiCtx);
+                if (aiPlayer.matrix) {
+                    drawMatrix(aiPlayer.matrix, aiPlayer.pos, aiCtx);
+                }
+            }
+        }
+
+        function update(time = 0) {
+            if (isGameOver) return;
+            const deltaTime = time - lastTime;
+            lastTime = time;
+            dropCounter += deltaTime;
+
+            if (aiEnabled || gameMode === 'battle') {
+                // AI speed
+                if (dropCounter > dropInterval / 2) {
+                    runAiBot();
+                }
+            } else {
+                if (dropCounter > dropInterval) {
+                    playerDrop();
+                }
+            }
+
+            draw();
+            requestAnimationFrame(update);
+        }
+
+        document.addEventListener('keydown', event => {
+            if (isGameOver) return;
+            if (event.key === 'ArrowLeft') {
+                playerMove(-1);
+            } else if (event.key === 'ArrowRight') {
+                playerMove(1);
+            } else if (event.key === 'ArrowDown') {
+                playerDrop();
+            } else if (event.key === 'ArrowUp') {
+                playerRotate(1);
+            } else if (event.key === 'Space' || event.code === 'Space') {
+                event.preventDefault();
+                hardDrop();
+            } else if (event.key === 'c' || event.key === 'C') {
+                holdPieceFunc();
+            } else if (event.key === 'a' || event.key === 'A') {
+                aiEnabled = !aiEnabled;
+                document.getElementById('luigiDialogue').innerText = aiEnabled ? "AI Bot activated!" : "Manual mode active.";
+            }
+        });
+
+        function startGame() {
+            arena.forEach(row => row.fill(0));
+            aiArena.forEach(row => row.fill(0));
+            player.score = 0;
+            player.lines = 0;
+            player.level = 1;
+            dropInterval = 1000;
+            isGameOver = false;
+            document.getElementById('scoreVal').innerText = '0';
+            document.getElementById('linesVal').innerText = '0';
+            document.getElementById('gameOverOverlay').style.display = 'none';
+            document.getElementById('startOverlay').style.display = 'none';
+            document.getElementById('bowserDialogue').innerText = "BWAHAHAHAH U NOOB!";
+            playerReset(player, arena);
+            if (gameMode === 'battle') {
+                playerReset(aiPlayer, aiArena);
+            }
+            lastTime = performance.now();
+            update();
+        }
+    </script>
+</body>
+</html>
