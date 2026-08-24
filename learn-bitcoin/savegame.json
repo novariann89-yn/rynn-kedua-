@@ -1,0 +1,13 @@
+{
+    "name": "Satoshi-Tx #8332",
+    "satoshis": 51000,
+    "ram_mb": 128,
+    "max_ram": 300,
+    "server_enabled": false,
+    "daemon_mode": false,
+    "unlocked_tools": [],
+    "current_chapter": 2,
+    "inventory": [
+        "Valid Public Key & Secp256k1 Signature"
+    ]
+}
