@@ -1,5 +1,5 @@
 from rich.panel import Panel
-from game.utils import print_chapter_header, typewriter, pause, console, select_option
+from game.utils import print_chapter_header, typewriter, pause, retry_pause, console, select_option
 from game.state import player
 
 def run():
@@ -34,11 +34,14 @@ def run():
         choice_idx = select_option("Select correct consensus action:", options)
         if choice_idx == 1:
             console.print("\n[bold green]Correct![/bold green] Bitcoin nodes measure chain validity by cumulative proof-of-work, not just block count. Chain B wins!")
+            player.satoshis += 4000
+            player.inventory.append("Six-Confirmation Immutability Seal")
+            player.unlocked_tools.append("getchaintips")
             player.save()
             break
         else:
             console.print("\n[bold red]Invalid consensus![/bold red] Remember Satoshi's whitepaper: the longest chain is the one with the most work.")
-            pause()
+            retry_pause()
 
     pause()
     typewriter("🎉 **CONGRATULATIONS!** 🎉")

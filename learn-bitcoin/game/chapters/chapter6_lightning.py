@@ -1,5 +1,5 @@
 from rich.panel import Panel
-from game.utils import print_chapter_header, typewriter, pause, console, select_option
+from game.utils import print_chapter_header, typewriter, pause, retry_pause, console, select_option
 from game.state import player
 
 def run():
@@ -40,7 +40,7 @@ def run():
             break
         else:
             console.print("\n[bold red]Incorrect![/bold red] HTLCs are essential for trustless multi-hop Lightning routing.")
-            pause()
+            retry_pause()
 
     pause()
     typewriter("🎉 **SATOSHI'S QUEST GRAND FINALE!** 🎉")

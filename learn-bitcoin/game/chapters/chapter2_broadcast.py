@@ -1,5 +1,5 @@
 from rich.panel import Panel
-from game.utils import print_chapter_header, typewriter, pause, console, select_option
+from game.utils import print_chapter_header, typewriter, pause, retry_pause, console, select_option
 from game.state import player
 
 def run():
@@ -40,7 +40,7 @@ def run():
             break
         else:
             console.print("\n[bold red]Incorrect![/bold red] Remember: graphical desktop apps turn off the RPC server by default for security.")
-            pause()
+            retry_pause()
 
     pause()
     typewriter("Challenge 2: **Auditing Active RPC Commands**")
@@ -56,13 +56,15 @@ def run():
     while True:
         choice_idx = select_option("Select diagnostic command:", options)
         if choice_idx == 1:
-            player.daemon_mode = True
             console.print("\n[bold green]Correct![/bold green] `bitcoin-cli getrpcinfo` inspects active JSON-RPC commands and execution durations.")
+            console.print("[dim]You also relaunch your node headless with `bitcoind -daemon` — it now runs silently in the background.[/dim]")
+            player.daemon_mode = True
+            player.satoshis += 1500
             player.save()
             break
         else:
             console.print("\n[bold red]Wrong command![/bold red] Check your Obsidian notes under Section 3 (OS vs Bitcoin Node Level).")
-            pause()
+            retry_pause()
 
     pause()
     typewriter("Challenge 3: **Diagnostic Toolkit Unlocked (`bitcoin-cli`)**")

@@ -1,5 +1,4 @@
 import hashlib
-import random
 from rich.panel import Panel
 from rich.prompt import Prompt
 from game.utils import print_chapter_header, typewriter, pause, console
@@ -24,22 +23,40 @@ def run():
 
     typewriter("Challenge: **The Nonce Mining Simulator**")
     typewriter("The miner needs a hash starting with [bold yellow]'00'[/bold yellow] to win the block reward.")
-    typewriter("Let's test your hashing skills! Guess or simulate finding a matching nonce.")
+    typewriter("Enter nonce guesses yourself, or just press [bold]Enter[/bold] on an empty input to let the rig auto-mine!")
 
     block_data = "Block#890241:TxPayload:Satoshi"
     target_prefix = "00"
 
+    def check_nonce(nonce):
+        return hashlib.sha256(f"{block_data}:{nonce}".encode()).hexdigest()
+
     attempts = 0
     while True:
-        nonce_input = Prompt.ask("\nEnter an integer Nonce to try hashing", default=str(random.randint(1, 1000)))
+        nonce_input = Prompt.ask("\nEnter an integer Nonce (or empty = auto-mine)", default="")
+        if nonce_input.strip() == "":
+            # Auto-mine simulation: grind nonces until the target is hit.
+            console.print("[dim]ASIC rig engaged — grinding nonces...[/dim]")
+            nonce = 0
+            h = check_nonce(nonce)
+            while not h.startswith(target_prefix):
+                nonce += 1
+                h = check_nonce(nonce)
+                if nonce % 250 == 0:
+                    console.print(f"  [dim]hashrate tick | nonces tried: {nonce} | last hash: {h[:16]}...[/dim]")
+            attempts += 1
+            console.print(f"  Attempt {attempts} | Nonce: {nonce} -> Hash: [cyan]{h}[/cyan]")
+            console.print(f"\n[bold green]SUCCESS![/bold green] The rig found a valid hash starting with '{target_prefix}' after {nonce + 1} hashes!")
+            console.print(f"Winning Hash: [yellow]{h}[/yellow] | Winning Nonce: {nonce}")
+            break
+
         try:
             nonce = int(nonce_input)
         except ValueError:
-            console.print("[red]Please enter a valid integer.[/red]")
+            console.print("[red]Please enter a valid integer (or empty for auto-mine).[/red]")
             continue
 
-        combined = f"{block_data}:{nonce}".encode()
-        h = hashlib.sha256(combined).hexdigest()
+        h = check_nonce(nonce)
         attempts += 1
 
         console.print(f"  Attempt {attempts} | Nonce: {nonce} -> Hash: [cyan]{h}[/cyan]")
@@ -49,7 +66,7 @@ def run():
             console.print(f"Winning Hash: [yellow]{h}[/yellow]")
             break
         else:
-            console.print("[dim]Hash didn't meet target difficulty. Try another nonce![/dim]")
+            console.print("[dim]Hash didn't meet target difficulty. Try another nonce (or empty = auto-mine)![/dim]")
 
     player.satoshis += 5000
     pause()

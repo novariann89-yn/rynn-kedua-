@@ -1,5 +1,5 @@
 from rich.panel import Panel
-from game.utils import print_chapter_header, typewriter, pause, console, select_option
+from game.utils import print_chapter_header, typewriter, pause, retry_pause, console, select_option
 from game.state import player
 
 def run():
@@ -38,7 +38,7 @@ def run():
             break
         else:
             console.print("\n[bold red]Incorrect![/bold red] Check Section 2 of your notes: `-server` does not hog RAM.")
-            pause()
+            retry_pause()
 
     pause()
     typewriter("Challenge 2: **Identifying Real RAM Consumers & Mempool Pressure**")
@@ -59,7 +59,7 @@ def run():
             break
         else:
             console.print("\n[bold red]Incorrect parameter![/bold red] Review Section 2 of your Obsidian notes.")
-            pause()
+            retry_pause()
 
     pause()
     typewriter("You optimize your node resources, escape the Mempool, and get selected by a miner! Advancing to Chapter 4...\n")

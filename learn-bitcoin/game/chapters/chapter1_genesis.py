@@ -1,6 +1,6 @@
 import random
 from rich.panel import Panel
-from game.utils import print_chapter_header, typewriter, pause, console, select_option
+from game.utils import print_chapter_header, typewriter, pause, retry_pause, console, select_option
 from game.state import player
 
 def run():
@@ -41,7 +41,7 @@ def run():
             break
         else:
             console.print("\n[bold red]Incorrect![/bold red] That would compromise your funds or break math! Try again.")
-            pause()
+            retry_pause()
 
     pause()
     typewriter("With your signature secured, you stamp your transaction payload: [yellow]Sig(PrivateKey, TxData)[/yellow].")

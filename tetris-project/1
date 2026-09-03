@@ -1,0 +1,12 @@
+#include <stdio.h>
+#include <unistd.h>
+
+int main(){
+for (int i = 0; i < 2; i++) {        // 🔄 Outer Loop (Baris)
+    for (int j = 0; j < 3; j++) {
+        usleep(500000);// 🔄 Inner Loop (Kolom)
+        printf("(%d,%d) ", i, j);    // 🖨️ Cetak Koordinat
+    }
+    printf("\n");                    // ↩️ Turun ke baris baru
+}
+}
