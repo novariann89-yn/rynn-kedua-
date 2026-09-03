@@ -4,7 +4,7 @@ import os
 from rich.panel import Panel
 from rich.prompt import Prompt
 from game.utils import print_banner, typewriter, pause, console
-from game.state import player
+from game.state import player, SAVE_FILE
 from game.chapters import chapter1_genesis, chapter2_broadcast, chapter3_mempool, chapter4_mining, chapter5_consensus, chapter6_lightning
 
 def main_menu():
@@ -27,8 +27,8 @@ def main_menu():
             show_inventory_and_cli()
         elif choice == "3":
             if Prompt.ask("[red]Are you sure you want to reset your progress?[/red]", choices=["y", "n"], default="n") == "y":
-                if os.path.exists("savegame.json"):
-                    os.remove("savegame.json")
+                if os.path.exists(SAVE_FILE):
+                    os.remove(SAVE_FILE)
                 player.__init__()
                 console.print("[green]Progress reset successfully![/green]")
                 pause()
@@ -95,25 +95,41 @@ def show_inventory_and_cli():
             console.print(f"  - [yellow]{tool}[/yellow]")
 
         console.print("\n[bold cyan]Interactive bitcoin-cli Simulator Sandbox:[/bold cyan]")
+        if player.unlocked_tools:
+            console.print("[dim]Unlocked commands:[/dim] " + ", ".join(f"[yellow]{t}[/yellow]" for t in player.unlocked_tools))
         console.print("Type any unlocked command (e.g. [yellow]getblockchaininfo[/yellow], [yellow]getmempoolinfo[/yellow]), or type [bold]back[/bold] to return to menu.")
-        
+
         cmd = Prompt.ask("\nbitcoin-cli / lncli").strip()
         if cmd.lower() in ["back", "exit", "quit"]:
             break
-        elif cmd in player.unlocked_tools or f"bitcoin-cli {cmd}" in player.unlocked_tools or cmd in ["getblockchaininfo", "getmempoolinfo", "getnetworkinfo", "getrpcinfo"]:
-            console.print(f"\n[green]Executing simulation for:[/green] bitcoin-cli {cmd}")
-            if "blockchain" in cmd:
-                console.print(Panel("Block Height: 890,245 | Best Hash: 00000000000000000003b... | Difficulty: 84.2T | Chain: main", title="getblockchaininfo"))
-            elif "mempool" in cmd:
-                console.print(Panel("Size: 32,450 txs | Bytes: 24,100,000 | Usage: 280MB / 300MB max | Min Fee: 22 sat/vB", title="getmempoolinfo"))
-            elif "network" in cmd:
-                console.print(Panel("Version: 26.00 (Bitcoin Knots) | Subversion: /Satoshi:26.0/ | Connections: 12 peers", title="getnetworkinfo"))
-            else:
-                console.print(Panel(f"Command executed successfully against local node (-server=1). Response: {{'result': 'success', 'satoshis': {player.satoshis}}}", title=cmd))
-            pause()
+        elif not cmd:
+            continue
         else:
-            console.print(f"\n[red]Error: Command '{cmd}' not recognized or not yet unlocked in Chapters![/red]")
-            pause()
+            # Only commands genuinely unlocked through chapters may run.
+            unlocked_names = set()
+            for tool in player.unlocked_tools:
+                unlocked_names.add(tool)
+                for part in tool.split():
+                    unlocked_names.add(part)
+            if cmd in unlocked_names or f"bitcoin-cli {cmd}" in unlocked_names:
+                console.print(f"\n[green]Executing simulation for:[/green] bitcoin-cli {cmd}")
+                if "blockchain" in cmd:
+                    console.print(Panel("Block Height: 890,245 | Best Hash: 00000000000000000003b... | Difficulty: 84.2T | Chain: main", title="getblockchaininfo"))
+                elif "mempool" in cmd:
+                    console.print(Panel("Size: 32,450 txs | Bytes: 24,100,000 | Usage: 280MB / 300MB max | Min Fee: 22 sat/vB", title="getmempoolinfo"))
+                elif "network" in cmd:
+                    console.print(Panel("Version: 26.00 (Bitcoin Knots) | Subversion: /Satoshi:26.0/ | Connections: 12 peers", title="getnetworkinfo"))
+                elif "payinvoice" in cmd:
+                    console.print(Panel("Payment routed via 3 hops in 42ms | Fee: 1 sat | Preimage: f4a9...c21b", title="lncli payinvoice"))
+                else:
+                    console.print(Panel(f"Command executed successfully against local node (-server=1). Response: {{'result': 'success', 'satoshis': {player.satoshis}}}", title=cmd))
+                pause()
+            else:
+                if player.unlocked_tools:
+                    console.print(f"\n[red]Error: '{cmd}' is not unlocked yet. Unlock it by progressing through the chapters![/red]")
+                else:
+                    console.print(f"\n[red]Error: '{cmd}' not recognized. Play Chapter 2+ to unlock bitcoin-cli diagnostics tools![/red]")
+                pause()
 
 if __name__ == "__main__":
     try:

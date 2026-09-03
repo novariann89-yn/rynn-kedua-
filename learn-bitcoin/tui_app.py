@@ -1,6 +1,7 @@
 import random
+from rich.markup import escape
 from textual.app import App, ComposeResult
-from textual.containers import Container, Horizontal, Vertical
+from textual.containers import Horizontal, Vertical, VerticalScroll
 from textual.widgets import Header, Footer, Static, Button
 from textual.binding import Binding
 
@@ -34,11 +35,15 @@ class SatoshiQuestApp(App):
     }
 
     #main-content {
-        padding: 2 4;
+        padding: 1 2;
         background: #0b1120;
         border: solid #1e293b;
         height: 100%;
-        align: center middle;
+    }
+
+    #story-scroll {
+        height: 1fr;
+        margin-bottom: 1;
     }
 
     .panel-title {
@@ -69,6 +74,7 @@ class SatoshiQuestApp(App):
         border: tall #38bdf8;
         margin-top: 1;
         width: 100%;
+        height: 3;
     }
 
     Button:hover {
@@ -80,7 +86,6 @@ class SatoshiQuestApp(App):
         background: #0f172a;
         border: heavy #334155;
         padding: 2;
-        margin-bottom: 1;
         width: 100%;
     }
     """
@@ -109,7 +114,8 @@ class SatoshiQuestApp(App):
                 yield Static(self.current_meme, id="meme-widget", classes="meme-box")
                 yield Static("\n[dim]Shortcuts:\n[Q] Quit Game\n[R] Restart Quest[/dim]")
             with Vertical(id="main-content"):
-                yield Static(self.render_story_text(), id="story-card")
+                with VerticalScroll(id="story-scroll"):
+                    yield Static(self.render_story_text(), id="story-card")
                 with Vertical(id="button-container"):
                     # Buttons will be dynamically mounted here
                     pass
@@ -131,7 +137,7 @@ class SatoshiQuestApp(App):
             return (
                 f"[bold #f59e0b]⚡ SATOSHI'S QUEST: ODYSSEY THROUGH THE BLOCKCHAIN ⚡[/bold #f59e0b]\n\n"
                 f"{logo}\n"
-                f"[cyan]Pixel Satoshi Profile:[/cyan]\n{PIXEL_SATOSHI}\n"
+                f"[cyan]Pixel Satoshi Profile:[/cyan]\n{escape(PIXEL_SATOSHI)}\n"
                 f"[dim]An elite terminal RPG representing your Bitcoin learning journey from Obsidian notes.[/dim]\n\n"
                 f"[green]{self.score_msg}[/green]"
             )
@@ -154,10 +160,10 @@ class SatoshiQuestApp(App):
                 f"[dim]You are now an elite full node operator. Click Reset below or press [R] to replay.[/dim]"
             )
 
-    def on_mount(self):
-        self.refresh_ui()
+    async def on_mount(self):
+        await self.refresh_ui()
 
-    def refresh_ui(self):
+    async def refresh_ui(self):
         # Update sidebar stats
         try:
             self.query_one("#stats-widget", Static).update(self.get_stats_text())
@@ -173,25 +179,33 @@ class SatoshiQuestApp(App):
 
         # Update buttons in button-container
         btn_container = self.query_one("#button-container", Vertical)
-        btn_container.remove_children()
+        await btn_container.remove_children()
 
         if self.current_ch_idx == -1:
-            btn_container.mount(Button("🚀 Start Satoshi's Quest", id="action-start", variant="primary"))
+            await btn_container.mount(Button("🚀 Start Satoshi's Quest", id="action-start", variant="primary"))
         elif 0 <= self.current_ch_idx < len(CHAPTERS_DATA):
             ch = CHAPTERS_DATA[self.current_ch_idx]
             for opt_text, _ in ch["options"]:
                 key = opt_text[0]
-                btn_container.mount(Button(f"Select {key}: {opt_text[4:]}", id=f"opt_{key}"))
+                await btn_container.mount(Button(f"Select {key}: {opt_text[3:]}", id=f"opt_{key}"))
         else:
-            btn_container.mount(Button("🔄 Restart Quest", id="action-restart", variant="success"))
+            await btn_container.mount(Button("🔄 Restart Quest", id="action-restart", variant="success"))
 
-    def on_button_pressed(self, event: Button.Pressed) -> None:
+        self.call_after_refresh(self._snap_story_top)
+
+    def _snap_story_top(self):
+        try:
+            self.query_one("#story-scroll", VerticalScroll).scroll_home(animate=False)
+        except Exception:
+            pass
+
+    async def on_button_pressed(self, event: Button.Pressed) -> None:
         btn_id = event.button.id
         if btn_id == "action-start":
             self.current_ch_idx = 0
             self.score_msg = ""
             self.current_meme = random.choice(MEME_QUOTES)
-            self.refresh_ui()
+            await self.refresh_ui()
         elif btn_id == "action-restart":
             self.current_ch_idx = -1
             self.satoshis = 5000
@@ -199,7 +213,7 @@ class SatoshiQuestApp(App):
             self.ram_mb = 128
             self.score_msg = "Quest reset."
             self.current_meme = random.choice(MEME_QUOTES)
-            self.refresh_ui()
+            await self.refresh_ui()
         elif btn_id and btn_id.startswith("opt_"):
             chosen_key = btn_id.split("_")[1]
             ch = CHAPTERS_DATA[self.current_ch_idx]
@@ -218,19 +232,19 @@ class SatoshiQuestApp(App):
                 self.score_msg = f"✔ {ch['success_msg']}"
                 self.current_ch_idx += 1
                 self.current_meme = random.choice(MEME_QUOTES)
-                self.refresh_ui()
+                await self.refresh_ui()
             else:
                 self.score_msg = "❌ Incorrect choice! Review your Obsidian notes and try again."
-                self.refresh_ui()
+                await self.refresh_ui()
 
-    def action_reset(self):
+    async def action_reset(self):
         self.current_ch_idx = -1
         self.satoshis = 5000
         self.server_active = False
         self.ram_mb = 128
         self.score_msg = "Quest reset via shortcut [R]."
         self.current_meme = random.choice(MEME_QUOTES)
-        self.refresh_ui()
+        await self.refresh_ui()
 
 if __name__ == "__main__":
     app = SatoshiQuestApp()

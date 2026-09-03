@@ -1,0 +1,5 @@
+oke,disini saya mau membuktikan kalau stagging itu  sama dengan snapshot ya
+<<<<<<< HEAD
+dirubah
+=======
+>>>>>>> f94ef0523ab91a42df3ef996a4759ad6e5cdd240

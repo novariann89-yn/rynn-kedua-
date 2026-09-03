@@ -1,11 +1,18 @@
 {
     "name": "Satoshi-Tx #8332",
-    "satoshis": 51000,
+    "satoshis": 55000,
     "ram_mb": 128,
     "max_ram": 300,
-    "server_enabled": false,
-    "daemon_mode": false,
-    "unlocked_tools": [],
+    "server_enabled": true,
+    "daemon_mode": true,
+    "unlocked_tools": [
+        "getblockchaininfo",
+        "getnetworkinfo",
+        "getmempoolinfo",
+        "getrpcinfo",
+        "getpeerinfo",
+        "getbestblockhash"
+    ],
     "current_chapter": 2,
     "inventory": [
         "Valid Public Key & Secp256k1 Signature"

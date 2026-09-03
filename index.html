@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Latcoding Git History Interactive Graph</title>
+    <!-- Use standard minified version (not ESM) for simpler loading -->
+    <script src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script>
+    <style>
+        body {
+            font-family: system-ui, -apple-system, sans-serif;
+            background: #f8f9fa;
+            margin: 0;
+            padding: 20px;
+            color: #333;
+        }
+        h1 {
+            text-align: center;
+            margin-bottom: 20px;
+            font-size: 24px;
+            color: #1a1a2e;
+        }
+        .mermaid-container {
+            max-width: 100%;
+            margin: 0 auto;
+            overflow-x: auto;
+            overflow-y: hidden;
+            border: 1px solid #e0e0e0;
+            border-radius: 8px;
+            background: white;
+            padding: 10px;
+        }
+        .mermaid {
+            display: block;
+            margin: 0 auto;
+        }
+        .mermaid-svg {
+            touch-action: none;
+            user-select: none;
+            max-width: 100%;
+            height: auto;
+        }
+        @media (max-width: 768px) {
+            .mermaid-container {
+                padding: 5px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<h1>Latcoding Git History - Interactive Mermaid Graph</h1>
+
+<div class="mermaid-container">
+<div class="mermaid">
+flowchart TD
+    classDef learning fill:#e1f5fe,stroke:#01579b,stroke-width:2px;
+    classDef project fill:#fff9c4,stroke:#fbc02d,stroke-width:2px;
+    classDef advanced fill:#e8f5e9,stroke:#2e7d32,stroke-width:2px;
+    classDef merge fill:#f3e5f5,stroke:#7b1fa2,stroke-width:2px;
+
+    subgraph C_Learning [C Programming Fundamentals & Practice]
+        C1["8d673a1: Add rynnn.c & boolean practice"] --> C2["60b2dbb / c28a529: rynnn.c incremental updates"]
+        C2 --> C3["f7a06b3: else if & nested if (3-day mastery)"]
+        C3 --> C4["dd5a029 / 38ddea8: Bro Code user input & switch statements"]
+        C4 --> C5["6ff31c7 - 17f7fba: Math functions & debugging user input"]
+        C5 --> C6["3b4d8e2 - f4cba33: String handling & if-else exercises"]
+        C6 --> C7["532b507 - 0189116: Weight converter & switch mastery"]
+        C7 --> C8["6d8b093 - ddd2902: Nested if correction & progress commits"]
+        C8 --> C9["b7322da - af844a8: strlen & sub-conscious exercises"]
+        C9 --> C10["8d1a7fd - 3aedb60: Rebuilds & shopping cart trials"]
+        C10 --> C11["d3870e6 - b55eb92: Shopping cart & boolean fixes"]
+        C11 --> C12["1af1dbf - 59f85d4: Boolean data types & weight converter"]
+        C12 --> C13["a874c59 - 206108f: Degree converter & re-learning nested if"]
+        C13 --> C14["f79b505 - dcf78fb: Simple calculator & Function basics"]
+        C14 --> C15["72ce730 - f497e6c: Function scope & prototypes"]
+        C15 --> C16["c046de8 - b5fdf32: While loops & for loops mastery"]
+        C16 --> C17["804fc16 - 79621f3: Break/continue statements & random generator"]
+    end
+
+    subgraph Side_Projects [Side Projects & Tetris]
+        C17 --> P1["13fc5bd & 0ebb980: Gabut bikin Tetris"]
+        P1 --> P2["1de408c: Add project files (README, index.html, .gitignore)"]
+        P2 --> P3["a846009 & 6abafec: Tetris project (vibe coded)"]
+    end
+
+    subgraph Blobs_Stashes [Blob Practice, Stashing & Detached Head]
+        P3 --> B1["f94ef05: Disini sy praktek tentang blob ya"]
+        B1 --> B2["4858cbd: Index on detached HEAD"]
+        B1 --> B3["d2b23c6: WIP on blob practice"]
+        B2 --> M1
+        B3 --> M1
+        B1 --> F1["fd92085: Push retry attempts after failures"]
+        F1 --> M1["1c50def: Merge commit 'refs/stash' into list"]
+    end
+
+    subgraph Repo_Cleanup [Recent Cleanup]
+        M1 --> CL1["ca22723: 'yo'"]
+        CL1 --> CL2["818ff50: chore: delete learn_c and rynnn"]
+    end
+
+    class C1,C2,C3,C4,C5,C6,C7,C8,C9,C10,C11,C12,C13,C14,C15,C16,C17 learning;
+    class P1,P2,P3 project;
+    class B1,B2,B3,F1 advanced;
+    class M1,CL1,CL2 merge;
+</div>
+</div>
+
+<script>
+mermaid.initialize({startOnLoad: true, theme: 'default', htmlLabels: true});
+// Run mermaid after page fully loads
+window.addEventListener('load', function() {
+    mermaid.run();
+});
+// Enable pan/zoom: middle mouse drag, scroll to zoom
+document.querySelectorAll('.mermaid-svg')?.forEach(function(el) {
+    el.addEventListener('wheel', function(e) {
+        e.preventDefault();
+    }, {passive: false});
+});
+</script>
+
+<p style="text-align: center; margin-top: 20px; font-size: 14px; color: #666;">
+    Scroll up/down/aside to navigate. <br>
+    <strong>Middle mouse drag</strong> to pan, <strong>scroll wheel</strong> to zoom.
+</p>
+
+</body>
+</html>
